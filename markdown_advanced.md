@@ -24,4 +24,4 @@
 
 ## Imagen
 
-![Logo]
+![Logo](imgs/artificial-intelligence-new-technology-science-futuristic-abstract-human-brain-ai-technology-cpu-central-processor-unit-chipset-big-data-machine-learning-cyber-mind-domination-generative-ai-scaled-760.avif)
