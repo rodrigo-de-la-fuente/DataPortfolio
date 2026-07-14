@@ -7,3 +7,5 @@ Mi camino para convertirme en Data Analyst.
 - Python
 - Git
 - GitHub
+- VSCode
+- Markdown
