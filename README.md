@@ -9,4 +9,3 @@ Mi camino para convertirme en Data Analyst.
 - GitHub
 - VSCode
 - Markdown
-- Ahora estoy en esta rama
