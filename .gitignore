@@ -21,5 +21,4 @@ __pycache__/
 # Entornos virtuales
 # ==========================
 
-venv/
-.env/
+.venv/
