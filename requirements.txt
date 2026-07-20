@@ -1,0 +1,110 @@
+apache-airflow==3.1.7
+apache-airflow-core==3.1.7
+apache-airflow-providers-common-compat==1.13.1
+apache-airflow-providers-common-io==1.7.1
+apache-airflow-providers-common-sql==1.31.0
+apache-airflow-providers-smtp==2.4.2
+apache-airflow-providers-standard==1.11.1
+apache-airflow-task-sdk==1.1.7
+astropy @ file:///Users/ec2-user/croot/astropy_1771842780092/work
+astropy-iers-data @ file:///Users/ec2-user/croot/astropy-iers-data_1773755159241/work
+beautifulsoup4 @ file:///Users/ec2-user/croot/beautifulsoup4-split_1770291773081/work
+dirtyjson==1.0.8
+diskcache==5.6.3
+docker==7.1.0
+docx2txt==0.9
+dvc==3.67.1
+dvc-data==3.18.3
+dvc-http==2.32.0
+dvc-objects==5.2.0
+dvc-render==1.0.2
+dvc-s3==3.3.0
+dvc-studio-client==0.22.0
+dvc-task==0.40.2
+fastapi==0.136.1
+fastapi-cli==0.0.24
+hf-gradio==0.4.1
+html2text==2025.4.15
+html5lib @ file:///Users/ktietz/demo/mc3/conda-bld/html5lib_1629144453894/work
+httpcore @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_941yf7p5zt/croot/httpcore_1748526061031/work
+hyperlink @ file:///tmp/build/80754af9/hyperlink_1610130746837/work
+ImageIO @ file:///Users/ec2-user/croot/imageio_1774003039824/work
+imagesize @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/imagesize_1728592187602/work
+imbalanced-learn @ file:///Users/ec2-user/croot/imbalanced-learn_1777473162575/work
+importlib_metadata @ file:///Users/ec2-user/croot/importlib_metadata-suite_1772099880086/work
+importlib_resources==6.5.2
+ipython @ file:///Users/ec2-user/croot/ipython_1773996062377/work
+ipython_pygments_lexers @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_25fteymumy/croot/ipython_pygments_lexers_1744753256449/work
+ipywidgets @ file:///Users/ec2-user/croot/ipywidgets_1771500031379/work
+jsonpatch @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/jsonpatch_1728594556110/work
+jsonpointer @ file:///Users/ec2-user/croot/jsonpointer_1774432881987/work
+jsonschema==4.26.0
+jupyter @ file:///Users/builder/cbouss/buildout/croot/jupyter_1742577908394/work
+jupyter-console @ file:///Users/builder/cbouss/buildout/croot/jupyter_console_1739485173236/work
+jupyter-events @ file:///Users/ec2-user/croot/jupyter_events_1778067260106/work
+jupyter-lsp @ file:///Users/ec2-user/croot/jupyter-lsp_1769773348719/work
+jupyter_client @ file:///Users/ec2-user/croot/jupyter_client_1768399009041/work
+jupyter_server @ file:///Users/ec2-user/croot/jupyter_server_1769613415012/work
+jupyter_server_terminals @ file:///Users/ec2-user/croot/jupyter_server_terminals_1770289355605/work
+jupyterlab @ file:///Users/ec2-user/croot/jupyterlab_1778253029256/work
+jupyterlab_pygments @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_42uijy7nfe/croot/jupyterlab_pygments_1741124161488/work
+jupyterlab_server @ file:///Users/ec2-user/croot/jupyterlab_server_1769629824895/work
+jupyterlab_widgets @ file:///Users/ec2-user/croot/jupyterlab_widgets_1771492388562/work
+jupytext==1.19.1
+keras==3.14.0
+llama-index==0.14.22
+llama-index-core==0.14.22
+llama-index-embeddings-huggingface==0.7.0
+llama-index-embeddings-openai==0.6.0
+llama-index-instrumentation==0.5.0
+llama-index-llms-openai==0.7.8
+llama-index-readers-file==0.6.0
+llama-index-workflows==2.20.0
+Markdown @ file:///Users/ec2-user/croot/markdown_1767787304567/work
+markdown-it-py @ file:///Users/ec2-user/croot/markdown-it-py_1777540561656/work
+matplotlib==3.10.9
+mlflow==3.11.1
+mlflow-skinny==3.11.1
+mlflow-tracing==3.11.1
+nbclient @ file:///Users/ec2-user/croot/nbclient_1771577059398/work
+nbconvert @ file:///Users/ec2-user/croot/nbconvert-meta_1772121294333/work
+nbformat @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/nbformat_1728586010733/work
+nltk @ file:///Users/ec2-user/croot/nltk_1775079548832/work
+numba @ file:///Users/ec2-user/croot/numba_1777948609527/work
+numexpr @ file:///Users/ec2-user/croot/numexpr_1776269924429/work
+numpy @ file:///Users/ec2-user/croot/numpy_and_numpy_base_1776188797328/work/dist/numpy-2.4.4-cp313-cp313-macosx_12_0_arm64.whl#sha256=85543b057ee3e27234d37d8b80ec09677db86df0accb1e4bb9b3695ad915e366
+numpydoc @ file:///Users/ec2-user/croot/numpydoc_1767780762568/work
+packaging==26.2
+pandas==2.3.3
+plotly @ file:///Users/ec2-user/croot/plotly_1773755059777/work
+prophet==1.1.7
+Pydantic==2.13.4
+pydantic-settings==2.14.0
+pydantic_core==2.46.4
+pytokens @ file:///Users/ec2-user/croot/pytokens_1775141125048/work
+pytoolconfig @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/pytoolconfig_1728593267795/work
+qtconsole @ file:///Users/ec2-user/croot/qtconsole_1776670406286/work
+regex @ file:///Users/ec2-user/croot/regex_1772652293390/work
+requests @ file:///Users/ec2-user/croot/requests_1775066190620/work
+requests-file @ file:///Users/ec2-user/croot/requests-file_1768309827931/work
+s3fs==2026.4.0
+safehttpx==0.1.7
+safetensors==0.7.0
+scikit-image @ file:///Users/ec2-user/croot/scikit-image_1768385895297/work
+scikit-learn @ file:///Users/ec2-user/croot/scikit-learn_1766097934589/work
+scipy @ file:///Users/ec2-user/croot/scipy_1776277851593/work/dist/scipy-1.17.1-cp313-cp313-macosx_12_0_arm64.whl#sha256=15c22e59c326770453fab758fce822036462c184a0c271800224becbf0889a7f
+scmrepo==3.6.2
+Scrapy @ file:///Users/ec2-user/croot/scrapy_1773167526476/work
+semantic-version==2.10.0
+sentence-transformers==5.5.0
+setproctitle==1.3.7
+setuptools==81.0.0
+SQLAlchemy @ file:///Users/ec2-user/croot/sqlalchemy_1773755053840/work
+SQLAlchemy-JSONField==1.0.2
+SQLAlchemy-Utils==0.42.1
+sqlparse==0.5.5
+sqltrie==0.11.2
+tensorflow==2.21.0
+tokenizers==0.22.2
+torch==2.12.0
+
