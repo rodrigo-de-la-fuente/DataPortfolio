@@ -1,3 +1,3 @@
 # VSCode Learning
 
-![roadmap-to-VSCode]()
+![roadmap-to-VSCode](/imgs/vscode.png)
