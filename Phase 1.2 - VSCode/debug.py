@@ -9,7 +9,7 @@ def calcular_media(numeros):
     return media
 
 
-datos = [7, 9, 10, 8, 6]
+datos = [12, 15, 18, 21, 24]
 
 resultado = calcular_media(datos)
 
