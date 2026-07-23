@@ -18,3 +18,4 @@ En este archivo se concretan los atajos de teclado más útiles a la hora de nav
 - Renombrado inteligente: seleccionar una palabra + `fn`+`F2`
 - Limpiar terminal: `command`+`K`
 - Interrumpir un proceso de la terminal: `control`+`C`
+- Guardar un cambio en un archivo: `command`+`S`
