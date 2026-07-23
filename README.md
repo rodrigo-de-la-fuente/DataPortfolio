@@ -4,16 +4,16 @@ Repositorio de proyectos de Ciencia de Datos.
 
 ## Objetivos
 
-[x] Git & GitHub:
+- Git & GitHub:
   - Crear y gestionar repositorios
   - Hacer commits
   - Trabajar con ramas y fusionarlas
   - Resolver conflictos entre ramas
   - Colaborar mediante Pull Requests
   - Mantener historial limpio
-[] VSCode: [Práctica de VSCode](/Phase%201.2%20-%20VSCode/)
-[] Markdown
-[] Python
+- VSCode: [Práctica de VSCode](/Phase%201.2%20-%20VSCode/)
+- Markdown
+- Python
 
 ## Proyectos
 
