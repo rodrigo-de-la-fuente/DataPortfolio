@@ -1,16 +1,22 @@
 # DataPortfolio
 
-Mi camino para convertirme en Data Analyst.
+Repositorio de proyectos de Ciencia de Datos.
 
-## Tecnologías
+## Objetivos
 
-- Git & GitHub:
+[x] Git & GitHub:
   - Crear y gestionar repositorios
   - Hacer commits
   - Trabajar con ramas y fusionarlas
   - Resolver conflictos entre ramas
   - Colaborar mediante Pull Requests
   - Mantener historial limpio
-- Markdown
-- VSCode
-- Python
+[] VSCode
+[] Markdown
+[] Python
+
+## Proyectos
+
+- Proyecto 1
+- Proyecto 2
+- ...
