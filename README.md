@@ -11,7 +11,7 @@ Repositorio de proyectos de Ciencia de Datos.
   - Resolver conflictos entre ramas
   - Colaborar mediante Pull Requests
   - Mantener historial limpio
-[] VSCode
+[] VSCode: [Práctica de VSCode](/Phase%201.2%20-%20VSCode/)
 [] Markdown
 [] Python
 
