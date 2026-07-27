@@ -1,4 +1,6 @@
-![VSCode Symbol](/imgs/visualstudio_code-card.png)
+<p align="center">
+  <img src="/imgs/visualstudio_code-card.png" alt="VSCode Symbol" width="700">
+</p>
 
 # Lección 2.1 — Entorno y configuración de Visual Studio Code
 
