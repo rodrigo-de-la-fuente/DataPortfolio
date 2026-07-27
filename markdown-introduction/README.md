@@ -73,7 +73,7 @@ README.md
 No es obligatorio incluir todas las secciones, pero sí recomendable conocerlas.
 
 
-1. Título: Debe ser breve y descriptivo. Evita títulos vagos como: ```text Proyecto Python``` o ```text Trabajo final```. Por ejemplo:
+1. Título: Debe ser breve y descriptivo. Evita títulos vagos como: `Proyecto Python` o `Trabajo final`. Por ejemplo:
 
 ```markdown
 # DataPortfolio
@@ -87,13 +87,11 @@ No es obligatorio incluir todas las secciones, pero sí recomendable conocerlas.
 
     
 
-2. Descripción: Explica el propósito del proyecto en pocas líneas. Un ejemplo:
+2. Descripción: Explica el propósito del proyecto en pocas líneas. Piensa que esta será probablemente la primera parte que leerá un reclutador. Un ejemplo:
 
 ```markdown
 Proyecto de análisis de ventas realizado con Python y Power BI para estudiar la evolución de las ventas mensuales y detectar patrones de comportamiento.
 ```
-
-    Piensa que esta será probablemente la primera parte que leerá un reclutador.
 
 3. Tecnologías: Una lista sencilla suele ser suficiente.
 
@@ -108,20 +106,18 @@ Proyecto de análisis de ventas realizado con Python y Power BI para estudiar la
 - Power BI
 ```
 
-4. Instalación: Explica cómo poner el proyecto en marcha.
+4. Instalación: Explica cómo poner el proyecto en marcha. Cuantos menos pasos necesite el usuario, mejor. Un ejemplo:
 
-````markdown
+```markdown
 ## Instalación
 
-```bash
 git clone https://github.com/usuario/proyecto.git
 
 cd proyecto
 
 pip install -r requirements.txt
 ```
-
-    Cuantos menos pasos necesite el usuario, mejor.
+    
 
 5. Uso: Muestra cómo ejecutar el proyecto.
 
@@ -129,7 +125,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-    Si requiere parámetros:
+Si requiere parámetros:
 
 ```bash
 python train.py --epochs 50
@@ -149,16 +145,9 @@ proyecto/
 │── requirements.txt
 ```
 
-7. Resultados: Aquí se pueden incluir imágenes o varios gráficos..
+7. Resultados: Aquí se pueden incluir imágenes o varios gráficos, y métricas.
 
-````markdown
-## Resultados
-
-![Dashboard](images/dashboard.png)
-```
-
-    También se pueden incluir métricas.
-
+    
 8. Mejoras futuras: muestra que el proyecto puede evolucionar.
 
 ````markdown
