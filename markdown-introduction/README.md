@@ -32,9 +32,6 @@ Aprender la sintaxis básica de Markdown y utilizarla para crear documentación 
 - GitHub
 - Visual Studio Code
 
-## Aprendizajes
-
-Durante estas prácticas he aprendido a usar Markdown de cara a crear documentos útiles para GitHub con formato profesional, siguiendo una estructura clara para el usuario que quiera visitar el repositorio.
 
 ---
 
