@@ -787,9 +787,9 @@ La terminal también dispone de autocompletado.
 
 Por ejemplo:
 
-    ```bash
-    git sta
-    ```
+```bash
+git sta
+```
 
 Al pulsar **Tab**, la terminal completa automáticamente el comando siempre que sea posible. Lo mismo ocurre con nombres de archivos y carpetas.
 
@@ -816,15 +816,15 @@ También podrás ejecutar programas o instalar bibliotecas.
 
 - Ejecutar un script:
 
-    ```bash
-    python main.py
-    ```
+```bash
+python main.py
+```
 
 - Instalar un paquete:
 
-    ```bash
-    pip install pandas
-    ```
+```bash
+pip install pandas
+```
 
 Más adelante aprenderás a utilizar entornos virtuales desde la terminal.
 
@@ -853,3 +853,296 @@ La interfaz gráfica debe entenderse como un complemento, no como un sustituto.
 - No cierres una terminal si hay un proceso importante ejecutándose sin saber qué está haciendo.
 
 ---
+
+# Lección 2.5 — Depuración (Debugging) con Visual Studio Code
+
+> **Objetivo:** Aprender a utilizar el depurador de Visual Studio Code para comprender cómo se ejecuta un programa, localizar errores e inspeccionar el valor de las variables en tiempo real.
+
+**Objetivos de aprendizaje**:
+- Crear y utilizar *breakpoints*.
+- Ejecutar programas en modo depuración.
+- Avanzar paso a paso durante la ejecución.
+- Inspeccionar variables.
+- Comprender el flujo de ejecución de un programa.
+- Utilizar el depurador como alternativa a los `print()`.
+
+
+## Qué es depurar
+
+La **depuración** (*debugging*) consiste en detener la ejecución de un programa para observar qué está ocurriendo en un momento determinado. En lugar de añadir numerosos:
+
+```python
+print(variable)
+```
+
+el depurador permite inspeccionar el estado del programa sin modificar el código. Es una de las herramientas más importantes para localizar errores y comprender cómo funciona un algoritmo.
+
+## Cuándo utilizar el depurador
+
+El depurador resulta especialmente útil cuando:
+
+- El programa produce un resultado inesperado.
+- Una variable contiene un valor incorrecto.
+- Aparece un error y no sabes dónde se origina.
+- Quieres entender el funcionamiento de una función compleja.
+
+
+## Programa de ejemplo
+
+Crear un archivo llamado:
+
+```text
+debug.py
+```
+
+Con el siguiente contenido:
+
+```python
+def calcular_media(numeros):
+    suma = 0
+
+    for numero in numeros:
+        suma += numero
+
+    media = suma / len(numeros)
+
+    return media
+
+
+datos = [7, 9, 10, 8, 6]
+
+resultado = calcular_media(datos)
+
+print(resultado)
+```
+
+## *Breakpoints*
+
+Un **breakpoint** es un punto donde el programa se detendrá automáticamente. Para crear uno, haz clic a la izquierda del número de línea. Aparecerá un círculo rojo indicando el punto de interrupción.
+
+Ejemplo:
+
+```text
+○ def calcular_media(...)
+
+● suma = 0
+
+○ for numero...
+```
+
+Cuando la ejecución alcance esa línea, el programa se detendrá.
+
+## Iniciar la depuración
+
+Puedes iniciar el depurador mediante:
+
+```text
+F5
+```
+
+o desde el menú:
+
+```text
+Run
+→ Start Debugging
+```
+
+VS Code ejecutará el programa en modo depuración y se detendrá en el primer breakpoint encontrado.
+
+## El panel de depuración
+
+Durante la ejecución aparecerán varias secciones.
+
+### Variables
+
+Muestra todas las variables existentes en ese instante.
+
+Ejemplo:
+
+```text
+suma = 16
+
+numero = 9
+
+numeros = [7, 9, 10, 8, 6]
+```
+
+Las listas y diccionarios pueden desplegarse para inspeccionar su contenido.
+
+
+### Call Stack
+
+Indica la secuencia de llamadas a funciones.
+
+Ejemplo:
+
+```text
+main
+
+↓
+
+calcular_media()
+```
+
+Permite comprender cómo ha llegado el programa al punto actual.
+
+
+### Breakpoints
+
+Lista todos los puntos de interrupción activos. Desde aquí pueden activarse, desactivarse o eliminarse.
+
+## Controles de depuración
+
+### Continue
+
+Atajo:
+
+```text
+F5
+```
+
+Continúa la ejecución hasta el siguiente breakpoint.
+
+### Step Over
+
+Atajo:
+
+```text
+F10
+```
+
+Ejecuta la línea actual y pasa a la siguiente. Si la línea contiene una llamada a una función, **no entra en ella**.
+
+### Step Into
+
+Atajo:
+
+```text
+F11
+```
+
+Si la línea ejecuta una función, entra dentro de ella.
+
+Ejemplo:
+
+```python
+resultado = calcular_media(datos)
+```
+
+permitirá acceder a:
+
+```python
+def calcular_media(numeros):
+```
+
+Es uno de los controles más utilizados.
+
+
+### Step Out
+
+Atajo:
+
+```text
+Shift + F11
+```
+
+Sale de la función actual y vuelve al punto donde fue llamada.
+
+### Restart
+
+Reinicia toda la sesión de depuración.
+
+
+### Stop
+
+Finaliza la ejecución del programa.
+
+
+## Inspeccionar variables
+
+Cuando el programa está detenido puedes:
+
+- Pasar el cursor sobre una variable.
+- Consultarla desde el panel **Variables**.
+
+Ejemplo:
+
+```python
+suma
+```
+
+Puede mostrar:
+
+```text
+24
+```
+
+No es necesario utilizar `print()`.
+
+## Modificar variables durante la depuración
+
+El depurador permite cambiar el valor de una variable mientras el programa está detenido.
+
+Por ejemplo:
+
+```text
+suma = 100
+```
+
+Después puedes continuar la ejecución para observar cómo cambia el comportamiento del programa.
+
+
+## Consola de depuración
+
+Mientras el programa está detenido puedes evaluar expresiones directamente.
+
+Ejemplos:
+
+```python
+len(datos)
+```
+
+```python
+suma
+```
+
+El resultado aparece inmediatamente en la consola de depuración.
+
+
+## Configuración automática
+
+Gracias a la extensión **Python**, normalmente no es necesario crear archivos de configuración adicionales. VS Code detecta automáticamente cómo ejecutar el programa.
+Más adelante aprenderemos a personalizar estas configuraciones mediante `launch.json`.
+
+## Errores frecuentes
+
+### El programa no se detiene
+
+Comprueba que el breakpoint está activo (círculo rojo sólido).
+
+### No ocurre nada al pulsar F5
+
+Verifica que:
+
+- El archivo abierto es un archivo Python.
+- La extensión **Python** está instalada y habilitada.
+
+### Hay varios intérpretes de Python
+
+Selecciona el intérprete correcto desde:
+
+```text
+⌘⇧P
+
+Python: Select Interpreter
+```
+
+## Buenas prácticas
+
+- Coloca los breakpoints antes de la zona donde sospechas que está el error.
+- Utiliza `Step Into` para comprender cómo funciona una función.
+- Evita llenar el código de `print()` cuando el depurador puede mostrar la información directamente.
+- Elimina los breakpoints que ya no sean necesarios.
+
+---
+
