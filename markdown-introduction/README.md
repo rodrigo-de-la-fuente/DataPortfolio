@@ -147,7 +147,7 @@ proyecto/
 
 7. Resultados: Aquí se pueden incluir imágenes o varios gráficos, y métricas.
 
-    
+
 8. Mejoras futuras: muestra que el proyecto puede evolucionar.
 
 ````markdown
@@ -170,8 +170,6 @@ A continuación tienes una plantilla muy cercana a la que utilizarás en tu port
 
 Proyecto de análisis exploratorio de datos realizado con Python.
 
----
-
 ## Tecnologías
 
 - Python
@@ -179,9 +177,9 @@ Proyecto de análisis exploratorio de datos realizado con Python.
 - Matplotlib
 - Seaborn
 
----
 
 ## Instalación
+```
 
 ```bash
 git clone https://github.com/usuario/analisis-ventas.git
@@ -191,17 +189,17 @@ cd analisis-ventas
 pip install -r requirements.txt
 ```
 
----
-
+````markdown
 ## Uso
+```
 
 ```bash
 python main.py
 ```
 
----
-
+````markdown
 ## Estructura
+```
 
 ```text
 analisis-ventas/
@@ -214,21 +212,16 @@ analisis-ventas/
 │── requirements.txt
 ```
 
----
-
+````markdown
 ## Resultados
 
-![Dashboard](images/dashboard.png)
-
----
+[Aquí irían los resultados]
 
 ## Mejoras futuras
 
 - Añadir nuevos indicadores.
 - Automatizar el análisis.
 - Publicar dashboard.
-
----
 
 ## Licencia
 
