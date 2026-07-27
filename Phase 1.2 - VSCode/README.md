@@ -367,3 +367,211 @@ Un entorno ligero suele ser más rápido y estable.
 - Preferir siempre extensiones mantenidas por desarrolladores reconocidos (como Microsoft).
 - Mantener VS Code actualizado.
 - Eliminar extensiones que ya no se utilicen.
+
+---
+
+# Lección 2.3 — Atajos y productividad en Visual Studio Code
+
+> **Objetivo:** Aprender los atajos de teclado más importantes de Visual Studio Code para trabajar de forma rápida y eficiente, reduciendo la dependencia del ratón.
+
+**Objetivos de aprendizaje**:
+
+- Utilizar la Paleta de Comandos.
+- Abrir archivos y buscarlos rápidamente.
+- Buscar texto en todo un proyecto.
+- Comentar, mover y duplicar líneas de código.
+- Utilizar múltiples cursores.
+- Dividir el editor y navegar entre pestañas.
+- Formatear documentos y renombrar símbolos de forma inteligente.
+
+
+## ¿Por qué usar atajos?
+
+Cada vez que apartas las manos del teclado para coger el ratón interrumpes tu flujo de trabajo. La diferencia puede parecer pequeña, pero tras cientos de acciones al día supone un ahorro considerable de tiempo y concentración. La idea es sencilla:
+
+> **Utiliza el teclado para navegar y el ratón solo cuando realmente aporte comodidad.**
+
+## Atajos
+
+1. La paleta de comandos: Es la herramienta más importante de VS Code. Desde ella puedes acceder prácticamente a cualquier función del editor. Por ejemplo:
+   - Cambiar el tema.
+   - Abrir la configuración.
+   - Ejecutar tareas.
+   - Seleccionar el intérprete de Python.
+   - Formatear un documento.
+   - Instalar extensiones.
+    El atajo es:
+        ```text
+        ⌘⇧P
+        ```
+
+2. Abrir archivos rápidamente:
+
+    ```text
+    ⌘P
+    ```
+
+    Empieza a escribir el nombre del archivo:
+
+    ```text
+    README
+    ```
+
+    o
+
+    ```text
+    main.py
+    ```
+
+    VS Code localizará el archivo inmediatamente, incluso en proyectos con cientos de archivos.
+
+
+3. Buscar texto en todo el proyecto
+
+    ```text
+    ⌘⇧F
+    ```
+
+    Permite buscar una palabra o frase en todos los archivos del proyecto.
+
+    Ejemplo:
+
+    ```text
+    load_data
+    ```
+
+    VS Code mostrará todas las apariciones.
+
+4. Buscar y reemplazar
+   - Buscar dentro del archivo:
+        ```text
+        ⌘F
+        ```
+
+   - Buscar y reemplazar: Muy útil para renombrar variables o corregir texto repetido.
+
+        ```text
+        ⌥⌘F
+        ```
+
+5. Terminal integrada: Permite alternar rápidamente entre el editor y la terminal.
+
+    ```text
+    ⌃`
+    ```
+
+
+
+6. Comentar código:
+
+    ```text
+    ⌘/
+    ```
+
+7. Duplicar una línea: Muy útil para crear variaciones de una línea de código sin necesidad de copiar y pegar.
+
+    ```text
+    ⌥⇧↓
+    ```
+
+    o
+
+    ```text
+    ⌥⇧↑
+    ```
+
+8. Mover líneas: Permite reorganizar el código rápidamente.
+
+   - Mover una línea hacia arriba:
+
+        ```text
+        ⌥↑
+        ```
+
+   - Mover una línea hacia abajo:
+
+        ```text
+        ⌥↓
+        ```
+
+9. Selección múltiple
+
+   - Añadir un nuevo cursor:
+
+    ```text
+    ⌥ + clic
+    ```
+
+    Ahora puedes escribir en varios lugares al mismo tiempo.
+
+10. Seleccionar la siguiente coincidencia: Ideal para editar varias apariciones de una variable. Selecciona una palabra y pulsa:
+
+    ```text
+    ⌘D
+    ```
+
+    Cada pulsación añade otra coincidencia a la selección.
+
+11. Ir a una línea concreta:
+
+    ```text
+    ⌃G
+    ```
+    Introduce el número de línea y pulsa **Enter**.
+
+
+12. Navegar entre pestañas: Permite cambiar rápidamente entre los archivos abiertos.
+
+    ```text
+    ⌃Tab
+    ```
+
+13. Dividir el editor: Muy útil para...
+    - Comparar archivos.
+    - Consultar documentación mientras programas.
+    - Revisar cambios.
+    El atajo es:
+    ```text
+    ⌘\
+    ```
+    Obtendrás dos editores uno junto al otro.
+
+14. Formatear un documento:
+
+    ```text
+    ⌥⇧F
+    ```
+
+    Si tienes instalado un formateador compatible, el código se reorganizará automáticamente. Más adelante se configurará un formateador específico para Python.
+
+15. Renombrado inteligente: Coloca el cursor sobre una variable, función o clase y pulsa:
+
+    ```text
+    F2
+    ```
+
+    VS Code actualizará automáticamente todas las referencias del proyecto. Es mucho más seguro que buscar y reemplazar manualmente.
+
+## Los 10 atajos más importantes
+
+| Atajo | Acción |
+|--------|--------|
+| `⌘⇧P` | Paleta de Comandos |
+| `⌘P` | Abrir archivo |
+| `⌘F` | Buscar dentro del archivo |
+| `⌘⇧F` | Buscar en todo el proyecto |
+| `⌃\`` | Mostrar/Ocultar la terminal |
+| `⌘/` | Comentar o descomentar |
+| `⌘D` | Selección múltiple |
+| `⌃G` | Ir a una línea |
+| `⌘\` | Dividir el editor |
+| `⌥⇧F` | Formatear documento |
+
+No es necesario memorizar todos desde el primer día. Empieza utilizando tres o cuatro con frecuencia y el resto acabarán formando parte de tu flujo de trabajo de manera natural.
+
+## Buenas prácticas
+
+- Prioriza el uso del teclado frente al ratón en tareas repetitivas.
+- Utiliza la Paleta de Comandos cuando no recuerdes dónde está una opción.
+- Aprovecha el renombrado inteligente para evitar errores.
+- Divide el editor cuando necesites comparar archivos o consultar documentación.
