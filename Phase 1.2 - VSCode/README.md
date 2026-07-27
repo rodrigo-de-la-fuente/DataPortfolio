@@ -575,3 +575,281 @@ No es necesario memorizar todos desde el primer día. Empieza utilizando tres o 
 - Utiliza la Paleta de Comandos cuando no recuerdes dónde está una opción.
 - Aprovecha el renombrado inteligente para evitar errores.
 - Divide el editor cuando necesites comparar archivos o consultar documentación.
+
+---
+
+# Lección 2.4 — La Terminal Integrada de Visual Studio Code
+
+> **Objetivo:** Aprender a utilizar la terminal integrada de VS Code como herramienta principal para trabajar con Git, Python y el sistema operativo, evitando cambiar constantemente entre aplicaciones.
+
+**Objetivos de aprendizaje**:
+- Abrir y gestionar varias terminales.
+- Ejecutar comandos de Git y Python.
+- Navegar por directorios con soltura.
+- Personalizar el uso de la terminal.
+- Comprender cuándo utilizar la terminal y cuándo la interfaz gráfica.
+
+
+## Qué es la terminal integrada
+
+La terminal integrada es una consola que se ejecuta **dentro de Visual Studio Code**. No es diferente de la Terminal de macOS o PowerShell en Windows; simplemente está integrada en el editor. Gracias a ello puedes:
+
+- Editar código.
+- Ejecutar programas.
+- Utilizar Git.
+- Instalar paquetes.
+- Lanzar pruebas.
+
+Todo sin abandonar VS Code.
+
+
+## Abrir la terminal
+
+El atajo más utilizado es:
+
+```text
+⌃`
+```
+
+También puedes acceder desde:
+
+```text
+Terminal
+→ New Terminal
+```
+
+La terminal aparecerá en el panel inferior del editor.
+
+## Dónde empieza la terminal
+
+Cuando abres una carpeta en VS Code, la terminal se sitúa automáticamente en la raíz del proyecto.
+
+Ejemplo:
+
+```text
+Roadmap-to-Success/
+│
+├── README.md
+├── ejercicios/
+└── scripts/
+```
+
+La terminal comenzará en:
+
+```bash
+Roadmap-to-Success $
+```
+
+De esta forma no es necesario escribir continuamente comandos como:
+
+```bash
+cd ...
+```
+
+## Ejecutar comandos
+
+La terminal funciona igual que cualquier otra consola del sistema operativo.
+
+Ejemplos:
+
+- Mostrar el directorio actual:
+
+    ```bash
+    pwd
+    ```
+
+- Listar archivos:
+
+    ```bash
+    ls
+    ```
+
+- Consultar el estado del repositorio:
+
+    ```bash
+    git status
+    ```
+
+- Ejecutar un programa Python:
+
+    ```bash
+    python hola.py
+    ```
+
+## Crear varias terminales
+
+Puedes trabajar con varias terminales abiertas simultáneamente.
+
+Ejemplo:
+
+```text
+Terminal 1 → Git
+
+Terminal 2 → Python
+
+Terminal 3 → Servidor local
+```
+
+Para crear una nueva terminal pulsa el botón:
+
+```text
++
+```
+
+situado en la esquina superior derecha del panel de terminales.
+
+### Cambiar entre terminales
+
+Cada terminal aparece como una pestaña. Puedes cambiar entre ellas sin perder el estado de los procesos que estén ejecutándose. Esto resulta especialmente útil cuando:
+
+- Ejecutas un servidor.
+- Realizas pruebas.
+- Trabajas con Git al mismo tiempo.
+
+
+### Dividir la terminal
+
+La terminal también puede dividirse. Obtendrás una distribución similar a esta:
+
+```text
+┌────────────┬────────────┐
+│ Terminal 1 │ Terminal 2 │
+└────────────┴────────────┘
+```
+
+Muy útil para ejecutar varios procesos simultáneamente.
+
+## Elegir el intérprete
+
+Dependiendo del sistema operativo podrás utilizar distintos intérpretes. En macOS:
+
+- zsh
+- bash
+- fish
+
+En Windows:
+
+- PowerShell
+- Command Prompt
+- Git Bash
+
+Durante este roadmap utilizaremos **zsh** en macOS.
+
+
+## Limpiar la terminal
+
+Cuando la terminal acumula demasiada información puedes limpiarla con:
+
+```bash
+clear
+```
+
+o mediante el atajo:
+
+```text
+⌘K
+```
+
+La pantalla se limpia, aunque el historial continúa disponible.
+
+## Interrumpir un proceso
+
+Si un programa queda ejecutándose indefinidamente puedes detenerlo mediante:
+
+```text
+Ctrl + C
+```
+
+Es uno de los atajos más importantes cuando trabajes con scripts o servidores.
+
+
+## Historial de comandos
+
+Utiliza las flechas del teclado para recuperar comandos anteriores.
+
+- Comando anterior:
+
+    ```text
+    ↑
+    ```
+
+- Comando siguiente:
+
+    ```text
+    ↓
+    ```
+
+Así evitarás escribir repetidamente los mismos comandos.
+
+## Autocompletado
+
+La terminal también dispone de autocompletado.
+
+Por ejemplo:
+
+    ```bash
+    git sta
+    ```
+
+Al pulsar **Tab**, la terminal completa automáticamente el comando siempre que sea posible. Lo mismo ocurre con nombres de archivos y carpetas.
+
+
+## Terminal + Git
+
+Un flujo de trabajo habitual será:
+
+    ```bash
+    git status
+
+    git add .
+
+    git commit -m "Añadir nueva funcionalidad"
+
+    git push
+    ```
+
+Todo ello sin abandonar VS Code.
+
+## Terminal + Python
+
+También podrás ejecutar programas o instalar bibliotecas.
+
+- Ejecutar un script:
+
+    ```bash
+    python main.py
+    ```
+
+- Instalar un paquete:
+
+    ```bash
+    pip install pandas
+    ```
+
+Más adelante aprenderás a utilizar entornos virtuales desde la terminal.
+
+
+## ¿Terminal o interfaz gráfica?
+
+VS Code ofrece botones para realizar muchas tareas relacionadas con Git. Sin embargo, es recomendable dominar primero los comandos de terminal porque:
+
+- Funcionan igual en cualquier entorno.
+- Ofrecen un mayor control.
+- Facilitan la resolución de problemas.
+- Son una habilidad muy valorada profesionalmente.
+
+La interfaz gráfica debe entenderse como un complemento, no como un sustituto.
+
+
+## Buenas prácticas
+
+- Utiliza la terminal integrada como herramienta principal de trabajo.
+- Familiarízate con los comandos más frecuentes.
+- Aprovecha el historial de comandos para evitar repetir tareas.
+- Mantén la terminal organizada cuando trabajes con varios procesos simultáneamente.
+- Mantén una terminal por tarea cuando el proyecto sea complejo.
+- Limpia la terminal periódicamente para mejorar la legibilidad.
+- Comprueba siempre en qué directorio te encuentras utilizando `pwd`.
+- No cierres una terminal si hay un proceso importante ejecutándose sin saber qué está haciendo.
+
+---
