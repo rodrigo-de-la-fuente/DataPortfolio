@@ -1,3 +1,5 @@
+![VSCode Symbol](/imgs/visualstudio_code-card.png)
+
 # Lección 2.1 — Entorno y configuración de Visual Studio Code
 
 > **Objetivo:** Configurar Visual Studio Code como un entorno de desarrollo profesional y comprender su interfaz para trabajar de forma eficiente durante todo el roadmap.
