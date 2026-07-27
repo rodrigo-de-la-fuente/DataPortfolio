@@ -150,7 +150,7 @@ proyecto/
 
 8. Mejoras futuras: muestra que el proyecto puede evolucionar.
 
-````markdown
+```markdown
 ## Mejoras futuras
 
 - Añadir más variables.
