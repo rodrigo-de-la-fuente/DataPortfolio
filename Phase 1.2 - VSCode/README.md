@@ -1,5 +1,3 @@
-# VSCode Learning
-
 # Lección 2.1 — Entorno y configuración de Visual Studio Code
 
 > **Objetivo:** Configurar Visual Studio Code como un entorno de desarrollo profesional y comprender su interfaz para trabajar de forma eficiente durante todo el roadmap.
@@ -14,9 +12,8 @@
 - Entender qué es un *Workspace*.
 - Dejar VS Code preparado para las siguientes lecciones.
 
----
 
-# Qué es Visual Studio Code
+## Qué es Visual Studio Code
 
 Visual Studio Code (VS Code) es un **editor de código ligero, gratuito y altamente extensible**.
 
@@ -26,9 +23,8 @@ Su filosofía es sencilla:
 
 Gracias a ello puede utilizarse para desarrollar en Python, SQL, JavaScript, C++, Java y muchos otros lenguajes.
 
----
 
-# La interfaz de VS Code
+## La interfaz de VS Code
 
 La ventana principal está organizada en varias zonas:
 
@@ -52,68 +48,25 @@ La ventana principal está organizada en varias zonas:
 └──────────────────────────────────────────────┘
 ```
 
-## Explorer
+1. Editor: Es la zona donde se escribe y modifica el código. Permite trabajar simultáneamente con varios archivos mediante pestañas.
 
-Permite visualizar la estructura del proyecto:
+2. Explorer: Es la herramienta principal para navegar por el proyecto. Permite visualizar la estructura del proyecto:
+   - Carpetas.
+   - Archivos.
+   - Organización del repositorio.
 
-- Carpetas.
-- Archivos.
-- Organización del repositorio.
+3. Barra lateral: Reúne las herramientas más importantes...
+   - Explorer: Gestiona archivos y carpetas.
+   - Search: Busca texto en todo el proyecto. Muy útil cuando un proyecto contiene muchos archivos.
+   - Source Control: Integra Git dentro de VS Code. Permite:
+     - Revisar cambios.
+     - Hacer commits.
+     - Comparar versiones.
+     - Gestionar ramas.
+   - Run and Debug: Permite ejecutar programas y depurarlos. Será fundamental durante el desarrollo en Python.
+   - Extensions: Desde aquí se instalan y administran todas las extensiones.
 
-Es la herramienta principal para navegar por el proyecto.
-
----
-
-## Editor
-
-Es la zona donde se escribe y modifica el código.
-
-Permite trabajar simultáneamente con varios archivos mediante pestañas.
-
----
-
-## Barra lateral
-
-La barra lateral reúne las herramientas más importantes.
-
-### Explorer
-
-Gestiona archivos y carpetas.
-
-### Search
-
-Busca texto en todo el proyecto.
-
-Muy útil cuando un proyecto contiene muchos archivos.
-
-### Source Control
-
-Integra Git dentro de VS Code.
-
-Permite:
-
-- Revisar cambios.
-- Hacer commits.
-- Comparar versiones.
-- Gestionar ramas.
-
-### Run and Debug
-
-Permite ejecutar programas y depurarlos.
-
-Será fundamental durante el desarrollo en Python.
-
-### Extensions
-
-Desde aquí se instalan y administran todas las extensiones.
-
----
-
-# Terminal integrada
-
-Una de las características más útiles de VS Code.
-
-Puede abrirse mediante:
+4. Terminal integrada: Es una de las características más útiles de VS Code. Puede abrirse mediante:
 
 ```text
 Ctrl + `
@@ -141,11 +94,9 @@ pytest
 
 Todo sin abandonar el editor.
 
----
+## Configuración recomendada
 
-# Configuración recomendada
-
-Acceder desde:
+Para acceder a la configuración, hacer desde
 
 ```text
 Code → Settings
@@ -157,55 +108,16 @@ o mediante:
 ⌘ ,
 ```
 
-## Auto Save
+Una vez llegado a la configuración, podemos configurar ciertos aspectos de la interfaz que optimizarán la experiencia de VSCode:
 
-Se recomienda **desactivarlo** durante el aprendizaje de Git para controlar conscientemente cuándo se modifican los archivos.
+1. Auto Save: Se recomienda **desactivarlo** durante el aprendizaje de Git para controlar conscientemente cuándo se modifican los archivos.
+2. Tamaño de fuente: Valores cómodos -> 15, 16, 17
+3. Tab Size: Para Python, 4 espacios
+4. Word Wrap: Activado para evitar desplazamientos horizontales.
+5. Minimap: Opcional. Muchos desarrolladores prefieren desactivarlo para ganar espacio.
+6. Tema: No existe un tema "correcto". Lo importante es que resulte cómodo durante largas sesiones de trabajo.
 
----
-
-## Tamaño de fuente
-
-Valores cómodos:
-
-- 15
-- 16
-- 17
-
----
-
-## Tab Size
-
-Para Python:
-
-```text
-4 espacios
-```
-
----
-
-## Word Wrap
-
-Activado para evitar desplazamientos horizontales.
-
----
-
-## Minimap
-
-Opcional.
-
-Muchos desarrolladores prefieren desactivarlo para ganar espacio.
-
----
-
-## Tema
-
-No existe un tema "correcto".
-
-Lo importante es que resulte cómodo durante largas sesiones de trabajo.
-
----
-
-# Cómo abrir un proyecto correctamente
+## Cómo abrir un proyecto correctamente
 
 Siempre debe abrirse una carpeta completa:
 
@@ -222,9 +134,7 @@ code nombre-del-proyecto
 
 Así VS Code reconoce correctamente toda la estructura del proyecto.
 
----
-
-# ¿Qué es un Workspace?
+## Qué es un *Workspace*
 
 Un **Workspace** guarda:
 
@@ -235,9 +145,7 @@ Un **Workspace** guarda:
 
 Puede contener una única carpeta o varias (Multi-root Workspace).
 
----
-
-# Sincronización
+## Sincronización
 
 VS Code permite sincronizar entre distintos equipos:
 
@@ -248,9 +156,8 @@ VS Code permite sincronizar entre distintos equipos:
 
 Muy útil cuando se trabaja desde varios ordenadores.
 
----
 
-# Buenas prácticas
+## Buenas prácticas
 
 - Abrir siempre carpetas completas.
 - Utilizar la terminal integrada.
