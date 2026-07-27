@@ -165,7 +165,7 @@ proyecto/
 
 A continuación tienes una plantilla muy cercana a la que utilizarás en tu portfolio:
 
-````markdown
+```markdown
 # Análisis de ventas
 
 Proyecto de análisis exploratorio de datos realizado con Python.
@@ -189,7 +189,7 @@ cd analisis-ventas
 pip install -r requirements.txt
 ```
 
-````markdown
+```markdown
 ## Uso
 ```
 
@@ -197,7 +197,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-````markdown
+```markdown
 ## Estructura
 ```
 
@@ -212,7 +212,7 @@ analisis-ventas/
 │── requirements.txt
 ```
 
-````markdown
+```markdown
 ## Resultados
 
 [Aquí irían los resultados]
