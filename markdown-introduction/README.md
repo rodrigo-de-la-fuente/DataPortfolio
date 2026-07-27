@@ -38,7 +38,7 @@ Durante estas prácticas he aprendido a usar Markdown de cara a crear documentos
 
 ---
 
-# Crear un README profesional
+# README - Buenas prácticas
 
 A partir de ahora, todos los proyectos que subas a GitHub deberían incluir un `README.md` bien estructurado. Un buen README responde rápidamente a las preguntas que cualquier persona se hará al entrar en tu repositorio:
 
