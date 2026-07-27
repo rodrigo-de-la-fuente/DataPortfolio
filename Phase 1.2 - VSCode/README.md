@@ -1146,3 +1146,252 @@ Python: Select Interpreter
 
 ---
 
+# Lección 2.6 — Snippets y plantillas en Visual Studio Code
+
+> **Objetivo:** Aprender a automatizar tareas repetitivas mediante *snippets* y comprender cómo utilizar plantillas para crear archivos con una estructura profesional desde el primer momento.
+
+**Objetivos de aprendizaje**:
+- Comprender qué es un *snippet*.
+- Utilizar los *snippets* incorporados en VS Code.
+- Crear tus propios *snippets*.
+- Entender el funcionamiento de los cursores (`$1`, `$2`, `$0`).
+- Diferenciar entre un *snippet* y una plantilla (*template*).
+
+
+## Qué es un snippet
+
+Un **snippet** es un fragmento de código reutilizable que Visual Studio Code inserta automáticamente cuando escribes una palabra clave. Por ejemplo, escribes:
+
+```text
+for
+```
+y pulsas **Tab**. VS Code genera automáticamente:
+
+```python
+for variable in iterable:
+    pass
+```
+
+En lugar de escribir toda la estructura manualmente. La extensión oficial de Python ya incluye numerosos *snippets*. Algunos de los más utilizados son:
+
+| Escribes | Resultado |
+|----------|-----------|
+| `def` | Definición de una función |
+| `class` | Definición de una clase |
+| `if` | Bloque `if` |
+| `for` | Bucle `for` |
+| `while` | Bucle `while` |
+| `try` | Bloque `try / except` |
+
+¡No es necesario memorizarlos! Basta con aprovechar las sugerencias que ofrece VS Code.
+
+## Por qué utilizar snippets
+
+Muchos fragmentos de código se escriben continuamente. Por ejemplo:
+
+```python
+def nombre_funcion():
+    pass
+```
+
+No tiene sentido escribir siempre la misma estructura. Un *snippet* permite insertarla en menos de un segundo.
+
+
+## Crear un snippet propio
+
+Abre la Paleta de Comandos (```text ⌘⇧P```) y busca
+
+```text
+Snippets: Configure Snippets
+```
+
+Selecciona:
+
+```text
+python.json
+```
+
+Aparecerá un archivo JSON donde se almacenarán tus *snippets* personales. Por defecto suele estar vacío:
+
+```json
+{
+}
+```
+
+## Anatomía de un snippet
+
+Ejemplo:
+
+```json
+{
+    "Función básica": {
+        "prefix": "func",
+        "body": [
+            "def ${1:nombre}(${2}):",
+            "    \"\"\"${3:Descripción}\"\"\"",
+            "    $0"
+        ],
+        "description": "Crear una función básica"
+    }
+}
+```
+
+Cada parte tiene una función concreta.
+
+### `prefix`
+
+Es la palabra que escribirás en el editor.
+
+```text
+func
+```
+
+Al pulsar **Tab**, el *snippet* se expandirá.
+
+
+### `body`
+
+Contiene el código que será insertado. Cada elemento del array representa una línea.
+
+
+### `$1`, `$2`, `$3`
+
+Representan posiciones sucesivas del cursor. Después de expandir el *snippet*:
+
+```python
+def nombre():
+```
+
+el cursor se situará primero sobre:
+
+```text
+nombre
+```
+
+Al pulsar **Tab**, pasará al siguiente campo.
+
+
+### `$0`
+
+Indica la posición final del cursor una vez completados todos los campos. Normalmente será el lugar donde comenzarás a escribir el código.
+
+## *Snippets* útiles
+
+### Función
+
+```json
+{
+    "Función": {
+        "prefix": "func",
+        "body": [
+            "def ${1:nombre}(${2}):",
+            "    \"\"\"${3:Descripción}\"\"\"",
+            "    $0"
+        ],
+        "description": "Crear una función"
+    }
+}
+```
+
+Escribe:
+
+```text
+func
+```
+
+Pulsa **Tab** y obtendrás:
+
+```python
+def nombre():
+    """Descripción"""
+```
+
+---
+
+### Clase
+
+```json
+{
+    "Clase": {
+        "prefix": "clase",
+        "body": [
+            "class ${1:Nombre}:",
+            "    def __init__(self):",
+            "        $0"
+        ],
+        "description": "Crear una clase básica"
+    }
+}
+```
+
+### Bloque *main*
+
+Este será uno de los *snippets* que más utilizarás durante el roadmap:
+
+```json
+{
+    "Main": {
+        "prefix": "main",
+        "body": [
+            "if __name__ == \"__main__\":",
+            "    $0"
+        ],
+        "description": "Bloque principal de Python"
+    }
+}
+```
+
+## Qué es una plantilla
+
+Una **plantilla** (*template*) es diferente de un *snippet*. Mientras un *snippet* inserta un fragmento de código donde se encuentra el cursor, una plantilla genera un archivo completo con una estructura predefinida.
+
+
+### Ejemplo de plantilla para *README.md*
+
+Durante el roadmap utilizaremos una plantilla similar a esta para documentar todos los proyectos:
+
+````markdown
+# Nombre del proyecto
+
+## Objetivo
+
+Breve descripción del proyecto.
+
+## Tecnologías
+
+- Python
+- Pandas
+
+## Estructura
+
+## Instalación
+
+## Uso
+
+## Resultados
+
+## Autor
+````
+
+Así todos los proyectos mantendrán una presentación uniforme.
+
+## Cuándo sí y cuándo no utilizar snippets
+
+Los snippets son especialmente útiles para:
+- Funciones
+- Clases
+- Bloques ```python if __name__ == "__main__"```
+- Consultas SQL repetitivas
+- Cabeceras de archivos Markdown
+- Comentarios estructurados
+
+Pero no conviene crear un snippet para estructuras que apenas utilizas. La regla es sencilla:
+
+> Si escribes la misma estructura con frecuencia, automatízala.
+
+## Buenas prácticas
+
+- Utiliza nombres cortos y fáciles de recordar.
+- Mantén una colección pequeña pero útil.
+- Aprovecha primero los snippets incorporados por las extensiones.
+- Añade nuevos snippets únicamente cuando detectes una repetición real en tu trabajo.
