@@ -73,7 +73,7 @@ README.md
 No es obligatorio incluir todas las secciones, pero sí recomendable conocerlas.
 
 
-1. Título: Debe ser breve y descriptivo.
+1. Título: Debe ser breve y descriptivo. Evita títulos vagos como: ```text Proyecto Python``` o ```text Trabajo final```. Por ejemplo:
 
 ```markdown
 # DataPortfolio
@@ -81,11 +81,11 @@ No es obligatorio incluir todas las secciones, pero sí recomendable conocerlas.
 
     O:
 
-````markdown
+```markdown
 # Predicción de precios de viviendas
 ```
 
-    Evita títulos vagos como: ```text Proyecto Python``` o ```text Trabajo final```
+    
 
 2. Descripción: Explica el propósito del proyecto en pocas líneas. Un ejemplo:
 
