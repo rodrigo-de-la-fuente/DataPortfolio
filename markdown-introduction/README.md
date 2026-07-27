@@ -36,6 +36,213 @@ Aprender la sintaxis básica de Markdown y utilizarla para crear documentación 
 
 Durante estas prácticas he aprendido a usar Markdown de cara a crear documentos útiles para GitHub con formato profesional, siguiendo una estructura clara para el usuario que quiera visitar el repositorio.
 
-## Autor
+---
 
-Rodrigo de la Fuente
+# Crear un README profesional
+
+A partir de ahora, todos los proyectos que subas a GitHub deberían incluir un `README.md` bien estructurado. Un buen README responde rápidamente a las preguntas que cualquier persona se hará al entrar en tu repositorio:
+
+- ¿Por qué existe este proyecto?
+- ¿Qué hace?
+- ¿Cómo lo instalo?
+- ¿Cómo lo utilizo?
+- ¿Qué tecnologías emplea?
+- ¿Cómo está organizado?
+
+Si el README responde a esas preguntas, el proyecto transmite profesionalidad desde el primer momento.
+
+
+## La estructura estándar
+
+La mayoría de proyectos profesionales siguen un esquema parecido a este:
+
+```text
+README.md
+
+1. Título
+2. Descripción
+3. Tecnologías
+4. Instalación
+5. Uso
+6. Estructura del proyecto
+7. Resultados o capturas
+8. Mejoras futuras
+9. Licencia
+```
+
+No es obligatorio incluir todas las secciones, pero sí recomendable conocerlas.
+
+
+1. Título: Debe ser breve y descriptivo.
+
+```markdown
+# DataPortfolio
+```
+
+    O:
+
+```markdown
+# Predicción de precios de viviendas
+```
+
+    Evita títulos vagos como: ```text Proyecto Python``` o ```text Trabajo final```
+
+2. Descripción: Explica el propósito del proyecto en pocas líneas. Un ejemplo:
+
+```markdown
+Proyecto de análisis de ventas realizado con Python y Power BI para estudiar la evolución de las ventas mensuales y detectar patrones de comportamiento.
+```
+
+    Piensa que esta será probablemente la primera parte que leerá un reclutador.
+
+3. Tecnologías: Una lista sencilla suele ser suficiente.
+
+```markdown
+## Tecnologías
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- SQL
+- Power BI
+```
+
+4. Instalación: Explica cómo poner el proyecto en marcha.
+
+````markdown
+## Instalación
+
+```bash
+git clone https://github.com/usuario/proyecto.git
+
+cd proyecto
+
+pip install -r requirements.txt
+```
+
+    Cuantos menos pasos necesite el usuario, mejor.
+
+5. Uso: Muestra cómo ejecutar el proyecto.
+
+```bash
+python main.py
+```
+
+    Si requiere parámetros:
+
+```bash
+python train.py --epochs 50
+```
+
+6. Estructura del proyecto: Es una de las secciones más útiles ya que ayuda a localizar rápidamente los archivos importantes.
+
+```text
+proyecto/
+
+│── data/
+│── notebooks/
+│── src/
+│── images/
+│── models/
+│── README.md
+│── requirements.txt
+```
+
+7. Resultados: Aquí se pueden incluir imágenes o varios gráficos..
+
+````markdown
+## Resultados
+
+![Dashboard](images/dashboard.png)
+```
+
+    También se pueden incluir métricas.
+
+8. Mejoras futuras: muestra que el proyecto puede evolucionar.
+
+````markdown
+## Mejoras futuras
+
+- Añadir más variables.
+- Optimizar el modelo.
+- Crear una aplicación con Streamlit.
+- Automatizar el entrenamiento.
+```
+
+9. Licencia: En proyectos personales basta con indicar una licencia sencilla. Si el repositorio no es público o no quieres permitir reutilización, puedes omitir esta sección.
+
+## Ejemplo de plantilla
+
+A continuación tienes una plantilla muy cercana a la que utilizarás en tu portfolio:
+
+````markdown
+# Análisis de ventas
+
+Proyecto de análisis exploratorio de datos realizado con Python.
+
+---
+
+## Tecnologías
+
+- Python
+- Pandas
+- Matplotlib
+- Seaborn
+
+---
+
+## Instalación
+
+```bash
+git clone https://github.com/usuario/analisis-ventas.git
+
+cd analisis-ventas
+
+pip install -r requirements.txt
+```
+
+---
+
+## Uso
+
+```bash
+python main.py
+```
+
+---
+
+## Estructura
+
+```text
+analisis-ventas/
+
+│── data/
+│── notebooks/
+│── src/
+│── images/
+│── README.md
+│── requirements.txt
+```
+
+---
+
+## Resultados
+
+![Dashboard](images/dashboard.png)
+
+---
+
+## Mejoras futuras
+
+- Añadir nuevos indicadores.
+- Automatizar el análisis.
+- Publicar dashboard.
+
+---
+
+## Licencia
+
+**MIT**
+```
+
