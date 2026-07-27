@@ -20,7 +20,7 @@ Aprender la sintaxis básica de Markdown y utilizarla para crear documentación 
 - Enlaces
 - Inserción de imágenes
 
-## Archivos del proyecto
+## Archivos del proyecto
 
 - `markdown_practice.md`: primera práctica de Markdown donde se aplican títulos, subtítulos, párrafos, listas, código y citas.
 - `markdown_advanced.md`: segunda práctica de Markdown donde se aplican tablas, enlaces y se insertan imágenes.
