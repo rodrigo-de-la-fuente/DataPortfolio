@@ -2,9 +2,7 @@
 
 > **Objetivo:** Configurar Visual Studio Code como un entorno de desarrollo profesional y comprender su interfaz para trabajar de forma eficiente durante todo el roadmap.
 
----
-
-## Objetivos de aprendizaje
+**Objetivos de aprendizaje**:
 
 - Comprender la interfaz de VS Code.
 - Configurar el editor para trabajar cómodamente.
@@ -165,3 +163,207 @@ Muy útil cuando se trabaja desde varios ordenadores.
 - Cerrar pestañas innecesarias.
 - Utilizar la búsqueda para localizar archivos y funciones rápidamente.
 
+---
+
+# Lección 2.2 — Extensiones clave de Visual Studio Code
+
+> **Objetivo:** Convertir Visual Studio Code en un entorno de desarrollo profesional mediante la instalación de las extensiones esenciales para programación, análisis de datos y documentación.
+
+**Objetivos parciales**:
+
+- Comprender qué son las extensiones.
+- Instalar extensiones desde el Marketplace.
+- Identificar las herramientas imprescindibles para Python y Git.
+- Mantener un entorno ligero y organizado.
+- Preparar VS Code para el resto del roadmap.
+
+## ¿Qué es una extensión?
+
+Una **extensión** añade nuevas funcionalidades a Visual Studio Code. Gracias a ellas es posible incorporar:
+
+- Soporte para nuevos lenguajes.
+- Autocompletado inteligente.
+- Depuración.
+- Integración con Git.
+- Formateo automático.
+- Herramientas de inteligencia artificial.
+- Temas e iconos.
+
+VS Code está diseñado para que cada desarrollador instale únicamente las herramientas que necesita.
+
+
+### Cómo instalar una extensión
+
+#### Método 1 (recomendado)
+
+Abrir el panel de extensiones:
+
+```text
+⇧⌘X
+```
+
+o desde:
+
+```text
+View
+→ Extensions
+```
+
+Buscar el nombre de la extensión y pulsar **Install**.
+
+#### Método 2
+
+Abrir la Paleta de Comandos:
+
+```text
+⌘⇧P
+```
+
+Buscar:
+
+```text
+Extensions: Install Extensions
+```
+
+
+### Extensiones imprescindibles
+
+#### Python
+
+**Autor:** Microsoft
+
+Es la extensión principal para desarrollar en Python. Incluye:
+
+- Ejecución de programas.
+- Depuración.
+- Detección de entornos virtuales.
+- Integración con Jupyter.
+- Compatibilidad con el resto de herramientas del ecosistema Python.
+
+#### Pylance
+
+**Autor:** Microsoft
+
+Añade inteligencia al editor. Permite:
+
+- Autocompletado avanzado.
+- Información sobre tipos.
+- Detección temprana de errores.
+- Navegación rápida entre funciones y clases.
+
+Ejemplo:
+
+```python
+import pandas as pd
+
+pd.
+```
+
+Al escribir el punto (`.`), Pylance muestra automáticamente todos los métodos disponibles.
+
+#### Jupyter
+
+Permite abrir y ejecutar archivos:
+
+```text
+.ipynb
+```
+
+Será fundamental durante las fases dedicadas al análisis de datos y Machine Learning.
+
+
+#### GitHub Pull Requests
+
+Integra GitHub directamente en VS Code. Permite:
+
+- Revisar Pull Requests.
+- Crear Pull Requests.
+- Gestionar Issues.
+- Revisar comentarios sin abandonar el editor.
+
+
+#### Markdown All in One
+
+Extensión especialmente útil para documentación. Añade:
+
+- Atajos para Markdown.
+- Creación automática de tablas.
+- Listas inteligentes.
+- Tabla de contenidos.
+- Mejor experiencia escribiendo archivos `README.md`.
+
+
+#### Error Lens
+
+Muestra los errores directamente sobre la línea donde aparecen.
+
+Ejemplo:
+
+```python
+x = "5"
+
+print(x + 3)
+```
+
+El editor señala inmediatamente el problema sin necesidad de consultar el panel inferior.
+
+#### GitLens
+
+Una de las mejores extensiones para trabajar con Git. Permite conocer:
+
+- Quién modificó cada línea.
+- Cuándo se realizó el cambio.
+- En qué commit.
+- Historial completo de un archivo.
+- Comparación entre versiones.
+
+Especialmente útil en proyectos colaborativos.
+
+
+#### Better Comments
+
+Mejora la legibilidad de los comentarios.
+
+Ejemplo:
+
+```python
+# TODO
+# FIXME
+# IMPORTANT
+# NOTE
+```
+
+Cada tipo aparece con un color diferente.
+
+#### Code Spell Checker
+
+Comprueba la ortografía en:
+
+- Documentación.
+- Comentarios.
+- Archivos Markdown.
+- README.
+
+Muy útil para mantener una documentación profesional.
+
+
+#### Material Icon Theme
+
+No modifica el funcionamiento del editor. Simplemente sustituye los iconos por otros mucho más descriptivos y agradables visualmente.
+
+## Mantener VS Code ligero
+
+Un error frecuente consiste en instalar decenas de extensiones "por si acaso". Es recomendable:
+
+- Instalar únicamente las necesarias.
+- Desactivar temporalmente las que no se utilicen.
+- Revisar periódicamente las extensiones instaladas.
+
+Un entorno ligero suele ser más rápido y estable.
+
+## Buenas prácticas
+
+- Instalar solo las extensiones que aporten valor.
+- Preferir siempre extensiones mantenidas por desarrolladores reconocidos (como Microsoft).
+- Mantener VS Code actualizado.
+- Eliminar extensiones que ya no se utilicen.
