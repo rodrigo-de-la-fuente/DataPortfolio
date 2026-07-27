@@ -27,7 +27,7 @@ Aprender la sintaxis básica de Markdown y utilizarla para crear documentación 
 
 ## Tecnologías
 
-- Git: crear repositorio local, hacer commits, visualizar el historial de commits, crear ramas y hacer merge sobre ellas, hacer Pull Requests
+- Git
 - Markdown
 - GitHub
 - Visual Studio Code
