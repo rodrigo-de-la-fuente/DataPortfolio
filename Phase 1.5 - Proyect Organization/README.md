@@ -146,28 +146,7 @@ Proyecto/
     └── models/
     ```
 
-5. `figures/`:
-
-    ```text
-    grafico_ventas.png
-    heatmap.png
-    ```
-
-6. `reports/`:
-
-    ```text
-    informe.pdf
-    analisis.docx
-    ```
-
-7. `models/`:
-
-    ```text
-    modelo.pkl
-    modelo.joblib
-    ```
-
-8. `docs/`: Contiene documentación adicional del proyecto.
+5. `docs/`: Contiene documentación adicional del proyecto.
 
     Ejemplos:
 
@@ -177,9 +156,9 @@ Proyecto/
     explicaciones.md
     ```
 
-9. `README.md`: Es la puerta de entrada del proyecto. Debe explicar qué hace el proyecto, cómo instalarlo, cómo ejecutarlo, tecnologías utilizadas, estructura del proyecto, resultados obtenidos.
+6. `README.md`: Es la puerta de entrada del proyecto. Debe explicar qué hace el proyecto, cómo instalarlo, cómo ejecutarlo, tecnologías utilizadas, estructura del proyecto, resultados obtenidos.
 
-10. `requirements.txt`: Lista todas las librerías necesarias. Permite instalar todas las dependencias con un único comando.
+7.  `requirements.txt`: Lista todas las librerías necesarias. Permite instalar todas las dependencias con un único comando.
 
     Ejemplo:
 
@@ -191,7 +170,7 @@ Proyecto/
     ```
 
 
-11. `.gitignore`: Indica a Git qué archivos y carpetas **no deben subirse al repositorio**.
+8.  `.gitignore`: Indica a Git qué archivos y carpetas **no deben subirse al repositorio**.
 
 ## Flujo típico de un proyecto
 
