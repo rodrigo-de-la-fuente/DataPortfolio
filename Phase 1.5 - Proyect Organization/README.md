@@ -636,3 +636,220 @@ Recuerda que...
 
 ---
 
+# Lección 5.4 — Documentación del proyecto
+
+## Objetivo
+
+El objetivo es aprender a documentar un proyecto de forma profesional para que cualquier persona pueda entenderlo, ejecutarlo y evaluar tu trabajo sin necesidad de preguntarte.
+
+### Por qué esto importa para tu portfolio
+
+Imagina dos proyectos con exactamente el mismo código. El primero tiene este `README.md`: `Proyecto de Python`, y nada más. El segundo incluye una descripción del problema, los objetivos, las tecnologías utilizadas, instrucciones de instalación, resultados obtenidos, capturas de pantalla y conclusiones. ¿Cuál transmite una imagen más profesional?
+La respuesta es evidente.
+
+> **Un buen README convierte un proyecto en un producto profesional.**
+
+---
+
+## Qué es la documentación
+
+La documentación es toda la información que ayuda a comprender un proyecto. Puede incluir README, diagramas, manuales, comentarios en el código y documentación técnica. En GitHub, el documento más importante es siempre `README.md`: El README es la puerta de entrada, pues cuando alguien entra en tu repositorio verá algo parecido a esto:
+
+```text
+Repositorio
+
+README
+Archivos
+Código
+```
+
+Lo primero que la mayoría de personas leerá será el README. Si el README no despierta interés es muy probable que ni siquiera llegue a revisar el código.
+
+---
+
+## Qué debe responder un buen README 
+
+Cuando alguien abre tu proyecto debería poder responder rápidamente a estas preguntas:
+
+- ¿Qué hace este proyecto?
+- ¿Por qué existe?
+- ¿Qué tecnologías utiliza?
+- ¿Cómo puedo instalarlo?
+- ¿Cómo se ejecuta?
+- ¿Qué resultados obtiene?
+- ¿Qué has aprendido desarrollándolo?
+
+Si responde a todas ellas, el README ya está cumpliendo su función.
+
+---
+
+## Estructura recomendada
+
+En la mayoría de proyectos utilizaremos una estructura similar a esta:
+
+```text
+Título
+
+Descripción
+
+Objetivos
+
+Tecnologías
+
+Estructura del proyecto
+
+Instalación
+
+Uso
+
+Resultados
+
+Próximas mejoras
+
+Autor
+```
+
+No todos los proyectos necesitarán todos estos apartados, pero será nuestra estructura base.
+
+---
+
+La mayoría de proyectos profesionales siguen un esquema parecido a este:
+
+```text
+README.md
+
+1. Título
+2. Descripción
+3. Tecnologías
+4. Instalación
+5. Uso
+6. Estructura del proyecto
+7. Resultados o capturas
+8. Mejoras futuras
+9. Licencia
+```
+
+No es obligatorio incluir todas las secciones, pero sí recomendable conocerlas.
+
+
+1. Título: Debe ser breve y descriptivo. Evita títulos vagos como "Proyecto Python" o "Trabajo final".
+
+2. Descripción: Explica el propósito del proyecto en pocas líneas. Piensa que esta será probablemente la primera parte que leerá un reclutador. Tres o cuatro líneas suelen ser suficientes. Un ejemplo: "Proyecto de análisis de ventas realizado con Python y Power BI para estudiar la evolución de las ventas mensuales y detectar patrones de comportamiento"
+
+3. Objetivos: Describe qué pretendías conseguir. Por ejemplo, limpiar los datos, analizar las ventas, crear visualizaciones...
+
+4. Tecnologías: Lista únicamente las herramientas realmente utilizadas. Una lista sencilla suele ser suficiente.
+
+```text
+Tecnologías
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- SQL
+- Power BI
+```
+
+4. Instalación: Explica cómo poner el proyecto en marcha. No supongas que quien lea el proyecto sabe cómo hacerlo.
+Cuantos menos pasos necesite el usuario, mejor. Un ejemplo:
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+
+cd analisis_supermercado
+
+python -m venv .venv
+
+source .venv/bin/activate
+
+pip install -r requirements.txt
+```
+    
+
+5. Uso: Explica cómo ejecutar el proyecto.
+
+```bash
+python src/main.py
+```
+
+Si requiere parámetros:
+
+```bash
+python src/train.py --epochs 50
+```
+
+
+1. Estructura del proyecto: Es una de las secciones más útiles ya que ayuda a localizar rápidamente los archivos importantes.
+
+```text
+proyecto/
+
+│── data/
+│── notebooks/
+│── src/
+│── images/
+│── models/
+│── README.md
+│── requirements.txt
+```
+
+7. Resultados: Aquí se pueden incluir imágenes o varios gráficos, y métricas. En proyectos de Data Analytics suele ser la sección más interesante para un reclutador.
+
+8. Mejoras futuras: muestra que el proyecto puede evolucionar, y demuestra capacidad de análisis y mejora continua.
+
+```text
+Mejoras futuras
+
+- Añadir más variables.
+- Optimizar el modelo.
+- Crear una aplicación con Streamlit.
+- Automatizar el entrenamiento.
+```
+9. Autor: Incluye tu nombre y, si lo deseas, GitHub, LinkedIn y/o correo profesional. Facilita que puedan contactar contigo.
+
+9. Licencia: En proyectos personales basta con indicar una licencia sencilla. Si el repositorio no es público o no quieres permitir reutilización, puedes omitir esta sección.
+
+
+
+---
+
+## Lo que NO debe aparecer
+
+Evita:
+
+- Historias personales largas.
+- Texto innecesario.
+- Instrucciones repetidas.
+- Listas enormes de librerías que no utilizas.
+
+El README debe ser claro, útil y directo.
+
+---
+
+## Cómo se trabaja en una empresa
+
+En muchas empresas, el README es el primer documento que consulta un desarrollador cuando se incorpora a un proyecto. Un README bien escrito reduce enormemente el tiempo necesario para comprender cómo funciona el repositorio.
+
+---
+
+## Aplicación a tu portfolio
+
+Todos los proyectos que construiremos durante esta hoja de ruta tendrán un README de calidad. No será un simple requisito. Será una herramienta para presentar tu trabajo. Recuerda que un reclutador probablemente dedicará pocos minutos a revisar tu repositorio, así que si el README es claro, atractivo y profesional, aumentarán las posibilidades de que continúe explorando el proyecto. Porque...
+
+> **El código demuestra que sabes programar; la documentación demuestra que sabes trabajar en equipo y comunicar tu trabajo. Un buen README puede marcar la diferencia entre un repositorio que se ignora y uno que deja una excelente impresión.**
+
+---
+
+## Buenas prácticas
+
+- Escribe el README desde el principio y actualízalo durante el desarrollo.
+- Explica primero el problema y después el código.
+- Incluye imágenes cuando aporten valor.
+- Mantén una estructura consistente en todos tus proyectos.
+- Piensa siempre en alguien que nunca ha visto tu proyecto.
+
+---
+
+
+
