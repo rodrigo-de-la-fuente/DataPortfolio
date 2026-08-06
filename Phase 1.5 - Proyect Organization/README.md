@@ -386,7 +386,7 @@ utils.cpython-313.pyc
 pip install -r requirements.txt
 ```
 
-&nbsp;Por eso añadimos `.venv` al `.gitignore`.
+Por eso añadimos `.venv` al `.gitignore`.
 
 * **¿Por qué ignorar `.env`?** Imagina un archivo así:
 
