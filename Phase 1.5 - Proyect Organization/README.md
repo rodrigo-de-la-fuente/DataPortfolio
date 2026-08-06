@@ -2,11 +2,7 @@
 
 ## Objetivo
 
-Aprender a organizar cualquier proyecto de forma profesional para que sea fácil de entender, mantener y ampliar.
-
-### ¿Por qué es importante?
-
-Un proyecto pequeño puede funcionar con todos los archivos mezclados:
+El objetivo es aprender a organizar cualquier proyecto de forma profesional para que sea fácil de entender, mantener y ampliar. ¿Por qué es importante para el portfolio? Un proyecto pequeño puede funcionar con todos los archivos mezclados:
 
 ```text
 Proyecto/
@@ -34,6 +30,7 @@ Pero conforme el proyecto crece empiezan los problemas:
 
 Una buena organización evita todo esto.
 
+---
 
 ### La idea principal
 
@@ -41,6 +38,7 @@ Cada carpeta debe tener **una única responsabilidad**: Piensa en una casa. La c
 
 > **La organización no sirve únicamente para proyectos grandes; sirve para que los proyectos pequeños puedan crecer sin convertirse en un caos.**
 
+---
 
 ## Estructura estándar
 
@@ -172,6 +170,8 @@ Proyecto/
 
 8.  `.gitignore`: Indica a Git qué archivos y carpetas **no deben subirse al repositorio**.
 
+---
+
 ## Flujo típico de un proyecto
 
 Cada elemento tiene su lugar:
@@ -194,6 +194,8 @@ Visualizaciones
         ▼
 Resultados (outputs)
 ```
+
+---
 
 ## Ejemplo completo
 
@@ -231,6 +233,8 @@ AnalisisVentas/
 
 Con esta estructura, cualquier persona entiende rápidamente dónde se encuentra cada tipo de archivo.
 
+---
+
 ## Buenas prácticas
 
 - Separa siempre datos y código.
@@ -246,7 +250,7 @@ Con esta estructura, cualquier persona entiende rápidamente dónde se encuentra
 
 ## Objetivo
 
-Aprender qué archivos deben formar parte de un proyecto profesional y cuáles **nunca** deberían subirse a GitHub. ¿Por qué esto importa para tu portfolio? Imagina que un reclutador entra en uno de tus repositorios y ve esto:
+El objetivo es aprender qué archivos deben formar parte de un proyecto profesional y cuáles **nunca** deberían subirse a GitHub. ¿Por qué esto importa para tu portfolio? Imagina que un reclutador entra en uno de tus repositorios y ve esto:
 
 ```text
 __pycache__/
@@ -262,6 +266,7 @@ La primera impresión será de desorden. En cambio, un repositorio limpio transm
 
 > **Git debe guardar tu trabajo, no el ruido que generan las herramientas. Un buen `.gitignore` mantiene el repositorio limpio, seguro y profesional, y hace que muestre solo aquello que aporta valor.**
 
+---
 
 ## Qué es `.gitignore`
 
@@ -404,6 +409,8 @@ La regla general a seguir será:
 
 **⚠️ Muy importante: `.gitignore` *no elimina archivos*. Simplemente evita que Git los controle. El archivo sigue existiendo en tu ordenador.** 
 
+---
+
 ## Un error muy frecuente
 
 Creas el archivo `.env` y lo subes al repositorio. Más tarde lo añades al `.gitignore` y piensas que ya está solucionado. Pues no, porque Git ya estaba siguiendo ese archivo: `.gitignore` **solo afecta a archivos que Git todavía no está controlando**. Para dejar de seguir un archivo ya versionado hay que eliminarlo del índice de Git sin borrarlo del disco haciendo:
@@ -414,6 +421,7 @@ git rm --cached .env
 
 Después podrás hacer un nuevo commit y Git dejará de seguir ese archivo.
 
+---
 
 ## Aplicación al portfolio
 
@@ -426,6 +434,7 @@ Todos los proyectos de tu GitHub deberán incluir un `.gitignore` adecuado. Así
 
 Y no cientos de archivos temporales generados automáticamente.
 
+---
 
 ## Buenas prácticas
 
@@ -435,6 +444,7 @@ Y no cientos de archivos temporales generados automáticamente.
 - Ignora los entornos virtuales.
 - Mantén siempre el repositorio limpio.
 
+---
 
 ## Plantilla de `.gitignore`
 
