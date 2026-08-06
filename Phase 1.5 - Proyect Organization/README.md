@@ -2,7 +2,11 @@
 
 ## Objetivo
 
-El objetivo es aprender a organizar cualquier proyecto de forma profesional para que sea fácil de entender, mantener y ampliar. ¿Por qué es importante para el portfolio? Un proyecto pequeño puede funcionar con todos los archivos mezclados:
+El objetivo es aprender a organizar cualquier proyecto de forma profesional para que sea fácil de entender, mantener y ampliar.
+
+### Por qué esto importa para tu portfolio
+
+Un proyecto pequeño puede funcionar con todos los archivos mezclados:
 
 ```text
 Proyecto/
@@ -250,7 +254,11 @@ Con esta estructura, cualquier persona entiende rápidamente dónde se encuentra
 
 ## Objetivo
 
-El objetivo es aprender qué archivos deben formar parte de un proyecto profesional y cuáles **nunca** deberían subirse a GitHub. ¿Por qué esto importa para tu portfolio? Imagina que un reclutador entra en uno de tus repositorios y ve esto:
+El objetivo es aprender qué archivos deben formar parte de un proyecto profesional y cuáles **nunca** deberían subirse a GitHub.
+
+### Por qué esto importa para tu portfolio
+
+Imagina que un reclutador entra en uno de tus repositorios y ve esto:
 
 ```text
 __pycache__/
@@ -451,19 +459,30 @@ Y no cientos de archivos temporales generados automáticamente.
 Crea un archivo  con el siguiente contenido:
 
 ```text
+# Caché de Python
 __pycache__/
 *.py[cod]
 
+# Entornos virtuales
 .venv/
 venv/
+env/
 
+# Jupyter Notebook
 .ipynb_checkpoints/
 
+# Variables de entorno
 .env
 
+# macOS
 .DS_Store
 
+# Visual Studio Code
 .vscode/
+
+# Modelos grandes
+*.pkl
+*.joblib
 ```
 
 Después ejecuta:
@@ -474,4 +493,146 @@ git status
 
 Y comprueba que esos archivos y carpetas ya no aparecen como pendientes de añadir.
 
+
+# Lección 5.3 — Gestión de entornos
+
+## Objetivo
+
+El objetivo de esta lección es aprender qué es un entorno virtual, por qué todos los proyectos profesionales utilizan uno y cómo gestionarlo correctamente.
+
+### Por qué esto importa para tu portfolio
+
+Imagina que un reclutador descarga uno de tus proyectos desde GitHub e intenta ejecutarlo. Si necesita instalar librerías "a ojo" porque no sabe cuáles utilizaste, es muy probable que el proyecto no funcione. En cambio, un proyecto profesional permite recrear exactamente el mismo entorno en pocos minutos. Recuerda que...
+
+> **Un proyecto no está terminado hasta que otra persona puede ejecutarlo en su ordenador.**
+
+---
+
+## El problema y la solución
+
+Supongamos que desarrollas dos proyectos distintos. El proyecto A necesita `pandas 2.3`, `numpy 2.1` y `matplotlib 3.10`. Mientras, el proyecto B necesita `pandas 1.5` y `tensorflow 2.15`. Si se instalan todas las librerías directamente en el ordenador, tarde o temprano aparecerán conflictos entre versiones, y un proyecto puede dejar de funcionar simplemente porque otro ha actualizado una dependencia.
+
+### La solución: los entornos virtuales
+
+Un entorno virtual es una instalación **aislada** de Python con sus propias librerías. Es decir, cada proyecto tiene su propio entorno independiente. Visualmente:
+
+```text
+Mi ordenador
+
+├── Proyecto_A
+│   └── .venv/
+│
+├── Proyecto_B
+│   └── .venv/
+│
+└── Proyecto_C
+    └── .venv/
+```
+
+Cada carpeta `.venv` es completamente independiente de las demás.
+
+---
+
+## Ventajas de utilizar entornos virtuales
+
+- Cada proyecto utiliza las versiones de librerías que necesita.
+- Se evitan conflictos entre proyectos.
+- Es mucho más fácil compartir el proyecto.
+- Si el entorno se estropea, basta con recrearlo.
+
+---
+
+## Pasos para crear un entorno virtual
+
+1. Desde la carpeta del proyecto ejecuta `python -m venv .venv`. Se creará una carpeta llamada `.venv/` que contendrá una instalación aislada de Python.
+
+2. Activar el entorno: La activación depende del sistema operativo. En macOS/Linux se hace `source .venv/bin/activate`. Cuando el entorno esté activo, normalmente la terminal mostrará algo parecido a `(.venv)` al principio de la línea de comandos.
+
+3. Instalar librerías: Con el entorno activado, ejecutar `pip install pandas matplotlib scikit-learn`. Las librerías se instalarán únicamente dentro de ese proyecto.
+
+4. Guardar las dependencias: Cuando el proyecto tenga instaladas todas las librerías necesarias, hacer `pip freeze > requirements.txt`. El archivo generado permite reconstruir el entorno en cualquier ordenador y tendrá un aspecto similar a este:
+
+```text
+matplotlib==3.10.1
+numpy==2.1.0
+pandas==2.3.0
+scikit-learn==1.7.0
+```
+
+Para recrear el entorno, otra persona solo tendrá que ejecutar `pip install -r requirements.txt` para instalar exactamente las mismas dependencias.
+
+### Por qué `.venv` está en `.gitignore`
+
+Porque contiene miles de archivos que pueden generarse automáticamente. No tiene sentido subirlos al repositorio. Lo único que necesitas compartir es `requirements.txt` y así cada usuario recreará su propio entorno local.
+
+---
+
+## Flujo de trabajo profesional
+
+Cada vez que empieces un proyecto seguirás un proceso parecido a este:
+
+```text
+Crear proyecto
+      │
+      ▼
+Crear entorno virtual
+      │
+      ▼
+Activar entorno
+      │
+      ▼
+Instalar librerías
+      │
+      ▼
+Desarrollar
+      │
+      ▼
+Actualizar requirements.txt
+```
+
+Con la práctica este flujo se convertirá en una rutina.
+
+---
+
+## Errores frecuentes
+
+- Trabajar sin activar el entorno: Las librerías se instalan en el Python global del sistema.
+- Subir `.venv` a GitHub: El repositorio aumenta enormemente de tamaño y contiene miles de archivos innecesarios.
+- Olvidar actualizar `requirements.txt`: Otras personas no podrán reproducir el proyecto correctamente.
+- Compartir un proyecto sin indicar las dependencias: Obligas a quien lo descargue a adivinar qué librerías necesita instalar.
+
+---
+
+## Aplicación a tu portfolio
+
+Todos los proyectos que construiremos durante esta hoja de ruta incluirán, como mínimo:
+
+```text
+README.md
+requirements.txt
+.gitignore
+```
+
+Y el archivo `.gitignore` contendrá como mínimo:
+
+```text
+.venv/
+```
+
+Gracias a ello, cualquier persona podrá clonar el repositorio, crear un entorno virtual, e instalar las dependencias necesarias para ejecutar el proyecto sin problemas. Este es el estándar esperado en proyectos profesionales.
+
+Recuerda que...
+> **Un proyecto profesional no depende del ordenador donde fue creado. Gracias a los entornos virtuales y a `requirements.txt`, cualquier persona puede recrear exactamente el mismo entorno de trabajo.**
+
+---
+
+## Buenas prácticas
+
+- Crea un entorno virtual para cada proyecto.
+- Activa el entorno antes de instalar librerías.
+- Mantén actualizado `requirements.txt`.
+- Nunca subas `.venv` a GitHub.
+- Comprueba de vez en cuando que el proyecto puede recrearse desde cero utilizando únicamente el repositorio.
+
+---
 
