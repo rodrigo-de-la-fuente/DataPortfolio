@@ -241,3 +241,227 @@ Con esta estructura, cualquier persona entiende rápidamente dónde se encuentra
 - Utiliza la misma estructura en todos tus proyectos.
 
 ---
+
+# Lección 5.2 — `.gitignore`
+
+## Objetivo
+
+Aprender qué archivos deben formar parte de un proyecto profesional y cuáles **nunca** deberían subirse a GitHub. ¿Por qué esto importa para tu portfolio? Imagina que un reclutador entra en uno de tus repositorios y ve esto:
+
+```text
+__pycache__/
+.venv/
+.ipynb_checkpoints/
+.DS_Store
+archivo.tmp
+backup.py
+modelo_v2_final_final.pkl
+```
+
+La primera impresión será de desorden. En cambio, un repositorio limpio transmite inmediatamente que sabes cómo trabajar.
+
+> **Git debe guardar tu trabajo, no el ruido que generan las herramientas. Un buen `.gitignore` mantiene el repositorio limpio, seguro y profesional, y hace que muestre solo aquello que aporta valor.**
+
+
+## Qué es `.gitignore`
+
+Es un archivo de texto que le dice a Git:
+
+> **"Aunque estos archivos existan en mi ordenador, no quiero que los controles ni los subas al repositorio."**
+
+Git simplemente los ignora.
+
+---
+
+## Por qué existe
+
+Durante el desarrollo aparecen muchos archivos que generan automáticamente Python, VSCode, Jupyter Notebook y el sistema operativo. Pueden volver a crearse en cualquier momento. Además, contienen información privada, así que no tiene sentido almacenarlos en GitHub.
+
+Supongamos este proyecto:
+
+```text
+analisis_supermercado/
+
+├── src/
+├── data/
+├── README.md
+├── main.py
+├── .gitignore
+├── __pycache__/
+├── .venv/
+└── .DS_Store
+```
+
+Las carpetas `__pycache__/`, `.venv/` y el archivo `.DS_Store` no los has creado tú. Los generan automáticamente Python, el entorno virtual y el sistema operativo. Sin un `.gitignore`, Git intentará subirlos.
+
+¿Qué ocurre sin `.gitignore`? Al ejecutar:
+
+```bash
+git status
+```
+
+podrías obtener:
+
+```text
+Untracked files:
+
+__pycache__/
+.venv/
+.DS_Store
+.ipynb_checkpoints/
+```
+
+Git piensa que quizá quieras añadirlos al repositorio. Pero realmente no quieres.
+
+---
+
+## Cómo funciona
+
+Dentro del archivo escribimos una regla por línea.
+
+Por ejemplo:
+
+```text
+__pycache__/
+```
+
+Git ignorará esa carpeta.
+
+Otro ejemplo:
+
+```text
+*.log
+```
+
+Ignorará todos los archivos cuya extensión sea `.log`. Un ejemplo típico para proyectos en Python
+
+```text
+# Caché de Python
+__pycache__/
+*.py[cod]
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Variables de entorno
+.env
+
+# macOS
+.DS_Store
+
+# Visual Studio Code
+.vscode/
+
+# Modelos grandes
+*.pkl
+*.joblib
+```
+
+Este archivo será prácticamente el mismo en la mayoría de tus proyectos.
+
+* **¿Por qué ignorar `__pycache__`?** Python crea automáticamente esta carpeta. Contiene archivos compilados que pueden regenerarse en cualquier momento y, por tanto, nunca deben subirse al repositorio.
+
+Ejemplo:
+
+```text
+__pycache__/
+
+main.cpython-313.pyc
+utils.cpython-313.pyc
+```
+
+* **¿Por qué ignorar `.venv`?** Cuando creas un entorno virtual se generan cientos o miles de archivos. Todos pueden volver a crearse ejecutando:
+
+```bash
+pip install -r requirements.txt
+```
+
+Por eso añadimos `.venv` al `.gitignore`.
+
+* **¿Por qué ignorar `.env`?** Imagina un archivo así:
+
+```text
+OPENAI_API_KEY=xxxxxxxx
+PASSWORD=123456
+TOKEN=abcdef
+```
+
+Si subes este archivo a GitHub, acabas de publicar tus claves privadas. Es uno de los errores más comunes entre desarrolladores principiantes.
+
+¿Y los datos? Depende del tamaño y del objetivo del proyecto: archivos de datos pequeños sí pueden subirse, pero archivos de datos grandes (p.ej., imágenes de varios gigabytes, vídeos, modelos grandes, bases de datos muy pesadas...) normalmente no. En estos casos se utilizan soluciones específicas como **Git LFS** o almacenamiento externo.
+
+
+¿Y los modelos entrenados? Aquí también depende del tamaño del modelo: Un modelo de unos pocos cientos de KB puede formar parte del proyecto, pero uno de varios gigabytes normalmente no.
+
+La regla general a seguir será:
+
+> **Solo sube aquello que sea necesario para entender, ejecutar o reproducir el proyecto.**
+
+**⚠️ Muy importante: `.gitignore` *no elimina archivos*. Simplemente evita que Git los controle. El archivo sigue existiendo en tu ordenador.** 
+
+## Un error muy frecuente
+
+Creas el archivo `.env` y lo subes al repositorio. Más tarde lo añades al `.gitignore` y piensas que ya está solucionado. Pues no, porque Git ya estaba siguiendo ese archivo: `.gitignore` **solo afecta a archivos que Git todavía no está controlando**. Para dejar de seguir un archivo ya versionado hay que eliminarlo del índice de Git sin borrarlo del disco haciendo:
+
+```bash
+git rm --cached .env
+```
+
+Después podrás hacer un nuevo commit y Git dejará de seguir ese archivo.
+
+
+## Aplicación al portfolio
+
+Todos los proyectos de tu GitHub deberán incluir un `.gitignore` adecuado. Así, cualquier persona que visite tus repositorios encontrará únicamente:
+
+- Código fuente.
+- Documentación.
+- Datos relevantes.
+- Resultados importantes.
+
+Y no cientos de archivos temporales generados automáticamente.
+
+
+## Buenas prácticas
+
+- Crea el `.gitignore` al comenzar el proyecto.
+- Nunca subas archivos con contraseñas o claves API.
+- Ignora carpetas generadas automáticamente.
+- Ignora los entornos virtuales.
+- Mantén siempre el repositorio limpio.
+
+
+## Plantilla de `.gitignore`
+
+Crea un archivo  con el siguiente contenido:
+
+```text
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+
+.ipynb_checkpoints/
+
+.env
+
+.DS_Store
+
+.vscode/
+```
+
+Después ejecuta:
+
+```bash
+git status
+```
+
+Y comprueba que esos archivos y carpetas ya no aparecen como pendientes de añadir.
+
+
