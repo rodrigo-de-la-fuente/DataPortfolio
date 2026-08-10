@@ -287,7 +287,6 @@ rm archivo.txt
 ```
 El archivo desaparecerá. Pero, ⚠️ **importante**: `rm` no mueve el archivo a la papelera sino que elimina directamente el archivo sin posibilidad de recuperación. Por tanto, ojo con este comando porque el archivo no pasa por la papelera de reciclaje, así que antes de usarlo es recomendable comprobar la ubicación del usuario haciendo `pwd` y `ls`.
 
----
 
 ## Operaciones con carpetas
 
@@ -337,7 +336,6 @@ mv proyecto proyecto_v2
 
 - Eliminar una carpeta con contenido: Para eliminar una carpeta que contiene archivos o subcarpetas hacemos `rm -r <foldername>`. Esto eliminará la carpeta y todo su contenido gracias a la opción `-r`, que quiere decir `recursive` o recursivo.
 
----
 
 ## Resumen de comandos
 
@@ -365,6 +363,7 @@ mv proyecto proyecto_v2
 - Utiliza `TAB` para completar nombres de archivos y carpetas.
 - No ejecutes comandos de borrado si no estás seguro de qué elementos afectarán.
 
+---
 
 # Lección 4.3 — Permisos y rutas
 
@@ -406,7 +405,6 @@ PERMISOS
 
 Estos conceptos serán especialmente importantes cuando trabajes con Git, Python, entornos virtuales, Docker y servidores Linux.
 
----
 
 ## Qué es una ruta
 
@@ -420,7 +418,6 @@ Una **ruta absoluta** empieza desde la raíz del sistema. En macOS y Linux comie
 
 Una **ruta relativa** parte de la carpeta en la que te encuentras actualmente. Supongamos que estás en `/Users/rodrigo/Documents`. Entonces, para entrar en `DataPortfolio` basta con hacer `cd DataPortfolio` y no se necesita escribir toda la ruta.
 
----
 
 ## Carpeta actual, padre y personal/raíz
 
@@ -456,7 +453,6 @@ Como resultado estaremos en:
 /Users/rodrigo/Documents/DataPortfolio/docs
 ```
 
----
 
 ## Ver permisos
 
@@ -765,7 +761,6 @@ Una de las características más potentes de la terminal es el **pipe**, `|`. Es
 | `comando --help` | Mostrar ayuda |
 | `\|` | Conectar comandos |
 
----
 
 ## Buenas prácticas
 
