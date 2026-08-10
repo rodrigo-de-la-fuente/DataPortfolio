@@ -928,16 +928,3 @@ avanzas de nuevo por el historial.
 
 ---
 
-## Fin del módulo 4
-
-Al terminar este módulo eres capaz de:
-
-- Navegar por el sistema de archivos.
-- Crear, copiar, mover y eliminar archivos y carpetas.
-- Trabajar con rutas absolutas y relativas.
-- Entender los permisos básicos.
-- Buscar archivos y contenido.
-- Consultar documentación e historial.
-- Utilizar atajos para trabajar más rápido.
-
-Estos conocimientos serán fundamentales para trabajar con Git, Python, entornos virtuales, Docker y servidores Linux.
