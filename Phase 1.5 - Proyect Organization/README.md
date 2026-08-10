@@ -34,7 +34,6 @@ Pero conforme el proyecto crece empiezan los problemas:
 
 Una buena organización evita todo esto.
 
----
 
 ### La idea principal
 
@@ -42,7 +41,6 @@ Cada carpeta debe tener **una única responsabilidad**: Piensa en una casa. La c
 
 > **La organización no sirve únicamente para proyectos grandes; sirve para que los proyectos pequeños puedan crecer sin convertirse en un caos.**
 
----
 
 ## Estructura estándar
 
@@ -71,8 +69,6 @@ Proyecto/
 ├── requirements.txt
 └── .gitignore
 ```
-
----
 
 1. `data/`: Contiene **todos los datos del proyecto**. Nunca mezcles datos con código. Normalmente se divide en tres carpetas:
 
@@ -174,7 +170,6 @@ Proyecto/
 
 8.  `.gitignore`: Indica a Git qué archivos y carpetas **no deben subirse al repositorio**.
 
----
 
 ## Flujo típico de un proyecto
 
@@ -274,7 +269,6 @@ La primera impresión será de desorden. En cambio, un repositorio limpio transm
 
 > **Git debe guardar tu trabajo, no el ruido que generan las herramientas. Un buen `.gitignore` mantiene el repositorio limpio, seguro y profesional, y hace que muestre solo aquello que aporta valor.**
 
----
 
 ## Qué es `.gitignore`
 
@@ -284,7 +278,6 @@ Es un archivo de texto que le dice a Git:
 
 Git simplemente los ignora.
 
----
 
 ## Por qué existe
 
@@ -325,8 +318,6 @@ __pycache__/
 ```
 
 Git piensa que quizá quieras añadirlos al repositorio. Pero realmente no quieres.
-
----
 
 ## Cómo funciona
 
@@ -417,7 +408,6 @@ La regla general a seguir será:
 
 **⚠️ Muy importante: `.gitignore` *no elimina archivos*. Simplemente evita que Git los controle. El archivo sigue existiendo en tu ordenador.** 
 
----
 
 ## Un error muy frecuente
 
@@ -429,7 +419,6 @@ git rm --cached .env
 
 Después podrás hacer un nuevo commit y Git dejará de seguir ese archivo.
 
----
 
 ## Aplicación al portfolio
 
@@ -442,7 +431,6 @@ Todos los proyectos de tu GitHub deberán incluir un `.gitignore` adecuado. Así
 
 Y no cientos de archivos temporales generados automáticamente.
 
----
 
 ## Buenas prácticas
 
@@ -452,7 +440,6 @@ Y no cientos de archivos temporales generados automáticamente.
 - Ignora los entornos virtuales.
 - Mantén siempre el repositorio limpio.
 
----
 
 ## Plantilla de `.gitignore`
 
@@ -493,6 +480,7 @@ git status
 
 Y comprueba que esos archivos y carpetas ya no aparecen como pendientes de añadir.
 
+---
 
 # Lección 5.3 — Gestión de entornos
 
@@ -506,7 +494,6 @@ Imagina que un reclutador descarga uno de tus proyectos desde GitHub e intenta e
 
 > **Un proyecto no está terminado hasta que otra persona puede ejecutarlo en su ordenador.**
 
----
 
 ## El problema y la solución
 
@@ -531,7 +518,6 @@ Mi ordenador
 
 Cada carpeta `.venv` es completamente independiente de las demás.
 
----
 
 ## Ventajas de utilizar entornos virtuales
 
@@ -540,7 +526,6 @@ Cada carpeta `.venv` es completamente independiente de las demás.
 - Es mucho más fácil compartir el proyecto.
 - Si el entorno se estropea, basta con recrearlo.
 
----
 
 ## Pasos para crear un entorno virtual
 
@@ -565,7 +550,6 @@ Para recrear el entorno, otra persona solo tendrá que ejecutar `pip install -r 
 
 Porque contiene miles de archivos que pueden generarse automáticamente. No tiene sentido subirlos al repositorio. Lo único que necesitas compartir es `requirements.txt` y así cada usuario recreará su propio entorno local.
 
----
 
 ## Flujo de trabajo profesional
 
@@ -592,7 +576,6 @@ Actualizar requirements.txt
 
 Con la práctica este flujo se convertirá en una rutina.
 
----
 
 ## Errores frecuentes
 
@@ -601,7 +584,6 @@ Con la práctica este flujo se convertirá en una rutina.
 - Olvidar actualizar `requirements.txt`: Otras personas no podrán reproducir el proyecto correctamente.
 - Compartir un proyecto sin indicar las dependencias: Obligas a quien lo descargue a adivinar qué librerías necesita instalar.
 
----
 
 ## Aplicación a tu portfolio
 
@@ -624,7 +606,6 @@ Gracias a ello, cualquier persona podrá clonar el repositorio, crear un entorno
 Recuerda que...
 > **Un proyecto profesional no depende del ordenador donde fue creado. Gracias a los entornos virtuales y a `requirements.txt`, cualquier persona puede recrear exactamente el mismo entorno de trabajo.**
 
----
 
 ## Buenas prácticas
 
@@ -649,7 +630,6 @@ La respuesta es evidente.
 
 > **Un buen README convierte un proyecto en un producto profesional.**
 
----
 
 ## Qué es la documentación
 
@@ -665,7 +645,6 @@ Código
 
 Lo primero que la mayoría de personas leerá será el README. Si el README no despierta interés es muy probable que ni siquiera llegue a revisar el código.
 
----
 
 ## Qué debe responder un buen README 
 
@@ -681,7 +660,6 @@ Cuando alguien abre tu proyecto debería poder responder rápidamente a estas pr
 
 Si responde a todas ellas, el README ya está cumpliendo su función.
 
----
 
 ## Estructura recomendada
 
@@ -811,9 +789,6 @@ Mejoras futuras
 9. Licencia: En proyectos personales basta con indicar una licencia sencilla. Si el repositorio no es público o no quieres permitir reutilización, puedes omitir esta sección.
 
 
-
----
-
 ## Lo que NO debe aparecer
 
 Evita:
@@ -825,13 +800,11 @@ Evita:
 
 El README debe ser claro, útil y directo.
 
----
 
 ## Cómo se trabaja en una empresa
 
 En muchas empresas, el README es el primer documento que consulta un desarrollador cuando se incorpora a un proyecto. Un README bien escrito reduce enormemente el tiempo necesario para comprender cómo funciona el repositorio.
 
----
 
 ## Aplicación a tu portfolio
 
@@ -839,7 +812,6 @@ Todos los proyectos que construiremos durante esta hoja de ruta tendrán un READ
 
 > **El código demuestra que sabes programar; la documentación demuestra que sabes trabajar en equipo y comunicar tu trabajo. Un buen README puede marcar la diferencia entre un repositorio que se ignora y uno que deja una excelente impresión.**
 
----
 
 ## Buenas prácticas
 
