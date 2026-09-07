@@ -100,7 +100,7 @@ if
 
 > **La indentación no es decoración. Forma parte de la sintaxis de Python.**
 
-## 5. : y bloques de código
+## 4. : y bloques de código
 
 Cuando una estructura va a contener un bloque de código, normalmente termina en `:`. Por ejemplo:
 
@@ -116,7 +116,7 @@ estructura:
     bloque de código
 ```
 
-## 6. Mayúsculas y minúsculas
+## 5. Mayúsculas y minúsculas
 
 Python distingue entre mayúsculas y minúsculas. Esto: `name = "Rodrigo"`, no es lo mismo que: `Name = "Rodrigo"`, ni que: `NAME = "Rodrigo"`. Son tres nombres diferentes. Por eso debemos mantener una nomenclatura consistente. La convención habitual será:
 
@@ -137,7 +137,7 @@ MeanTemperature
 
 En Python utilizaremos principalmente ***snake_case***.
 
-## 7. Varias instrucciones
+## 6. Varias instrucciones
 
 Podemos escribir varias instrucciones en líneas diferentes:
 
@@ -150,7 +150,7 @@ print(age)
 
 Es preferible mantener una instrucción por línea. Aunque Python permite determinadas expresiones más compactas, no queremos escribir código innecesariamente difícil de leer.
 
-## 8. La importancia de los errores
+## 7. La importancia de los errores
 
 Durante esta fase vamos a adoptar una idea fundamental: Los errores forman parte del proceso normal de programación. Por ejemplo:
 
