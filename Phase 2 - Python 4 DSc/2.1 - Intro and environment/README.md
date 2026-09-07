@@ -116,7 +116,7 @@ estructura:
     bloque de código
 ```
 
-## 6. Mayúsculas y minúsculas
+## 6. Mayúsculas y minúsculas
 
 Python distingue entre mayúsculas y minúsculas. Esto: `name = "Rodrigo"`, no es lo mismo que: `Name = "Rodrigo"`, ni que: `NAME = "Rodrigo"`. Son tres nombres diferentes. Por eso debemos mantener una nomenclatura consistente. La convención habitual será:
 
