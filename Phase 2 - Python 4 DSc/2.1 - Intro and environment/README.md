@@ -176,6 +176,7 @@ VOLVER A EJECUTAR
 
 Esto será especialmente importante cuando empecemos a trabajar con datasets.
 
+---
 
 # Lección 2.1.2 — Tipos de datos
 
@@ -358,6 +359,8 @@ True
 False
 ```
 
+---
+
 # Lección 2.1.3 — Variables y operadores
 
 Ya conocemos los tipos de datos. Ahora vamos a aprender a almacenarlos, modificarlos y operar con ellos.
@@ -490,155 +493,216 @@ Por tanto:
 ```
 
 ### Operadores lógicos
-Podemos combinar condiciones mediante:
-and
-or
-not
-and
-Ambas condiciones deben cumplirse:
-rating > 8 and year > 2010
-or
-Al menos una debe cumplirse:
-genre == "Drama" or genre == "Comedy"
-not
-Invierte el resultado:
-not is_loaded
-Estos operadores serán esenciales en la próxima lección cuando estudiemos estructuras de control.
-10. Operadores de asignación
-Existe una forma abreviada de modificar variables.
-Tenemos:
-count = count + 1
-Podemos escribir:
+Podemos combinar condiciones mediante `and`, `or`, `not`, y `and`.
+- `and`: Ambas condiciones deben cumplirse
+- `or`: Al menos una debe cumplirse
+- `not`: Invierte el resultado
+
+Estos operadores serán esenciales para estructuras de control.
+
+### Operadores de asignación
+Existe una forma abreviada de modificar variables. En vez de escribir `count = count + 1`, podemos hacer `count += 1`. A `+=` lo llamamos operador de asignación. Así como para la suma hay uno, también para la resta, la división y la multiplicación también los hay: `+=`, `-=`, `/=`, `*=`.
+
+---
+
+# Lección 2.1.4 — Estructuras de control
+Hasta ahora nuestro código se ejecutaba de arriba abajo, instrucción por instrucción. Ahora introduciremos algo fundamental: Podremos hacer que el programa tome decisiones y repita acciones. Esto nos permite pasar de programas puramente secuenciales a programas que responden a los datos.
+
+## 1. El flujo de un programa
+Hasta ahora:
+
+```text
+instrucción 1
+     ↓
+instrucción 2
+     ↓
+instrucción 3
+     ↓
+instrucción 4
+```
+
+A partir de ahora podremos hacer:
+
+```text
+        ¿condición?
+        /        \
+    True        False
+      ↓            ↓
+hacer algo     hacer otra cosa
+```
+
+Y también:
+
+```text
+┌───────────────┐
+│   repetir     │
+│    código     │
+└───────┬───────┘
+        ↑
+        │
+  mientras /
+  para cada
+```
+
+Las estructuras principales que aprenderemos son:
+
+```text
+if / elif / else  → decisiones
+for               → iteraciones
+while             → repeticiones condicionadas
+```
+
+## 2. if — tomar decisiones
+La estructura más básica es:
+
+```python
+if condition:
+    instruction
+```
+
+Por ejemplo:
+
+```python
+rating = 8.5
+
+if rating >= 8:
+    print("Highly rated movie")
+```
+
+Como `8.5 >= 8` es `True`, se ejecuta `print()`.
+
+## 3. else — alternativa
+Podemos definir qué ocurre cuando la condición es falsa. El flujo será:
+
+```text
+      rating >= 8?
+      /       \
+    True       False
+    ↓           ↓
+Highly rated   Not highly rated
+```
+
+`else` no lleva condición porque representa precisamente todos los casos en los que `if` no se cumple.
+
+## 4. elif — múltiples posibilidades
+Si tenemos más de dos posibilidades utilizamos `elif`. El flujo será:
+
+```text
+rating >= 8?
+    │
+    ├── Sí → Excellent
+    │
+    └── No
+         ↓
+    rating >= 6?
+         │
+         ├── Sí → Good
+         │
+         └── No → Poor
+```
+
+Aquí Python comprueba las condiciones en orden. Python entrará en el primer bloque y no continúa comprobando los `elif` si se cumple la condición para ejecutar el primer bloque. Por eso normalmente debemos colocar primero las condiciones más específicas.
+
+## 5. Condiciones compuestas
+Podemos combinar condiciones con `and`, `or` y `not`:
+
+- `and`: ambas condiciones han de ser verdaderas.
+- `or`: solo necesitamos una verdadera.
+- `not`: invierte el booleano.
+
+## 6. for — repetir para cada elemento
+Esta estructura es fundamental en programación. `for` lo utilizamos normalmente cuando queremos recorrer una colección o realizar una cantidad conocida de iteraciones. Supongamos que tenemos `movies = ["Dune", "Interstellar", "Gladiator"]`. Podemos recorrerlas haciendo:
+
+```python
+for movie in movies:
+    print(movie)
+```
+La variable `movie` representa el elemento actual de la iteración.
+
+### range(n)
+Para repetir una acción un número determinado de veces usamos el objeto `range(n)`, que genera los enteros comprendidos entre 0 y n-1. Un ejemplo es:
+
+```python
+for i in range(5):
+    print(i)
+```
+
+ También podemos especificar inicio y final del rango, haciendo `range(i,f)`, que genera los enteros entre `i` y `f-1`.
+
+
+## 7. while — repetir mientras se cumpla una condición
+`while` lo utilizamos cuando queremos continuar mientras se cumpla una condición. Funciona siguiendo este flujo:
+
+```text
+      count = 0
+          ↓
+      count < 5?
+      /      \
+    Sí        No
+    ↓          ↓
+  ejecutar     FIN
+    ↓
 count += 1
-Lo mismo ocurre con:
-count -= 1
-count *= 2
-count /= 2
-Ejemplo:
-movies = 100
+    │
+    └──────────→ volver a comprobar
+```
 
-movies += 50
-print(movies)
-Resultado:
-150
-11. Operaciones con texto
-Los operadores también pueden utilizarse con str.
-Concatenación
-first_name = "John"
-last_name = "Smith"
+Un ejemplo:
 
-full_name = first_name + " " + last_name
+```python
+count = 0
 
-print(full_name)
-Resultado:
-John Smith
-También podemos repetir texto:
-print("Python " * 3)
-Resultado:
-Python Python Python
-Pero cuidado:
-"10" + "20"
-no es una suma matemática.
-Produce:
-1020
-porque son cadenas de texto.
-12. Precedencia de operaciones
-Python sigue las reglas matemáticas habituales.
-result = 10 + 5 * 2
-Primero:
-5 × 2 = 10
-Después:
-10 + 10 = 20
-Por tanto:
-print(result)
-produce:
-20
-Podemos utilizar paréntesis para controlar el orden:
-result = (10 + 5) * 2
-Ahora:
-15 × 2 = 30
-13. Variables y análisis de datos
-Aquí empieza a aparecer una idea importante de nuestro proyecto.
-Supongamos:
-total_revenue = 250000
-number_of_movies = 500
-Podemos calcular:
-revenue_per_movie = total_revenue / number_of_movies
-Tenemos:
-                 total_revenue
-                       │
-                       ÷
-                       │
-                 number_of_movies
-                       │
-                       ↓
-                revenue_per_movie
-Y podemos utilizar ese resultado posteriormente:
-if revenue_per_movie > 400:
-    print("High revenue per movie")
-Estamos empezando a construir el flujo que utilizaremos durante toda la fase:
-DATOS
-  ↓
-VARIABLES
-  ↓
-OPERACIONES
-  ↓
-RESULTADO
-  ↓
-DECISIÓN
-14. Una advertencia importante
-No debemos utilizar nombres ambiguos:
-❌
-x = 250000
-y = 500
-z = x / y
-Aunque funcione, dentro de un proyecto grande será difícil entenderlo.
-Mejor:
-total_revenue = 250000
-number_of_movies = 500
-revenue_per_movie = total_revenue / number_of_movies
-El segundo código prácticamente se explica solo.
-Esto conecta con uno de los principios de nuestra Fase 2:
-Código legible antes que código ingenioso.
-15. Mini reto — 2.1.3
-Crea:
-lesson_2_1_3.py
-Imagina que nuestro dataset contiene información sobre películas.
-Define:
-total_movies = ...
-total_revenue = ...
-total_runtime = ...
-Y calcula:
-1. duración media por película
-2. ingresos medios por película
-3. si los ingresos medios superan una cantidad que tú determines
-Después muestra los resultados con print().
-Por ejemplo, conceptualmente:
-average_runtime = ...
-average_revenue = ...
+while count < 5:
+    print(count)
+    count += 1
+```
 
-print(...)
-print(...)
+Y como resultado obtendremos la secuencia 0, 1, 2, 3, 4.
 
-print(average_revenue > ...)
-Condición del reto
-No utilices números aleatorios sin sentido. Inventa un pequeño dataset hipotético coherente.
-16. Lo que debes dominar
-Al terminar 2.1.3 debes saber:
-VARIABLES
-   ↓
-nombre = valor
-ARITMÉTICA
-+  -  *  /  //  %  **
-COMPARACIÓN
-==  !=  >  <  >=  <=
-LÓGICA
-and  or  not
-ASIGNACIÓN
-=  +=  -=  *=  /=
-Y, sobre todo, entender:
-=   → asigno un valor
-==  → comparo dos valores
+
+## 8. `break` vs `continue`
+
+### break
+Python *break* es una sentencia que permite salir de/parar un bucle por completo en cuanto se da o deja de darse una condición externa. Python *break* se utiliza dentro del código y suele estar situado después de una sentencia *if*. Por ejemplo:
+
+```python
+ratings = [5.2, 6.8, 9.1, 7.4]
+
+for rating in ratings:
+    if rating >= 9:
+        print("Found excellent movie")
+        break
+```
+
+Así, cuando encuentra `9.1`, termina el bucle.
+
+### continue
+Python *continue* se salta una parte del bucle si se cumple una determinada condición. Python *continue* también se utiliza dentro del bucle y a menudo se coloca tras una sentencia *if*. Por ejemplo:
+
+```python
+ratings = [5.2, 6.8, 9.1, 7.4]
+
+for rating in ratings:
+    if rating < 7:
+        continue
+
+    print(rating)
+```
+
+Esto da como resultado los número 9.1 y 7.4. Podemos interpretarlo como:
+
+```text
+rating < 7?
+   │
+   ├── Sí → saltar
+   │
+   └── No → procesar
+```
+
+
+
+
+
 
 
 
