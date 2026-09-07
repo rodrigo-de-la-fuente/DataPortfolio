@@ -182,7 +182,7 @@ Esto será especialmente importante cuando empecemos a trabajar con datasets.
 
 En la lección anterior aprendimos cómo escribir sintaxis válida en Python. Ahora necesitamos entender qué tipo de información estamos manejando. Esto es fundamental para Data Analytics, porque cuando trabajemos con datasets tendremos columnas que contienen números, texto, fechas, valores booleanos, valores ausentes... Y Python necesita saber qué tipo de dato tiene cada valor para poder operar correctamente con él.
 
-## 1. Los tipos de datos básicos
+## 1. Los tipos de datos básicos
 
 Los principales tipos que utilizaremos son:
 
@@ -210,7 +210,7 @@ Podemos visualizarlo así:
   10     3.14      "Python"
 ```
 
-## 2. int — números enteros
+## 2. *int* — números enteros
 
 Representan números sin decimales:
 
@@ -232,7 +232,7 @@ Que da como resultado:
 <class 'int'>
 ```
 
-## 3. float — números decimales
+## 3. *float* — números decimales
 
 Representan números con decimales:
 
@@ -249,7 +249,7 @@ Resultado:
 <class 'float'>
 ```
 
-## 4. str — cadenas de texto
+## 4. *str* — cadenas de texto
 Un str representa texto. Podemos utilizar comillas simples: `name = 'Python'`, o dobles: `name = "Python"`. Ambas son válidas. Por ejemplo:
 
 ```python
@@ -270,7 +270,7 @@ Resultado:
 
 **Importante**: Aunque parezcan números, esto: `year = "2026"` es texto, no un número. Mientras que: `year = 2026` es un int.
 
-## 5. bool — valores booleanos
+## 5. *bool* — valores booleanos
 Un booleano solamente puede tener dos valores: `True` y `False`. Por ejemplo:
 
 ```python
@@ -289,7 +289,7 @@ Resultado:
 <class 'bool'>
 ```
 
-## 6. None — ausencia de valor
+## 6. *None* — ausencia de valor
 Python tiene un valor especial: `None`. Representa la ausencia de un valor. Por ejemplo,
 
 ```python
@@ -298,16 +298,16 @@ result = None
 
 Esto no significa `0` ni `""` ni `False`. Significa que actualmente no hay ningún valor. Esto será especialmente importante cuando trabajemos con datos reales, porque los datasets suelen contener valores ausentes.
 
-## 7. type()
+## 7. `type()`
 Una de las herramientas más importantes de esta lección es `type()`, que nos permite averiguar qué tipo de dato tenemos como ya hemos ido viendo.
 
 ## 8. Python es dinámicamente tipado
 En Python no necesitamos declarar explícitamente el tipo de una variable. Podemos hacer `age = 30` y Python entiende que `age → int`, y posteriormente hacemos `age = "thirty"` y entonces ahora `age → str`. O sea, el tipo puede cambiar. Esto se denomina **tipado dinámico**. No obstante, que Python lo permita no significa que debamos cambiar arbitrariamente los tipos. En proyectos profesionales queremos que nuestros datos tengan sentido.
 
-## 9. Conversión entre tipos
+## 9. Conversión entre tipos
 Podemos convertir algunos datos.
 
-### int(), float()
+### `int()` y `float()`
 
 ```python
 age = int("30")
@@ -329,7 +329,7 @@ price = float("19.99")
 ```
 
 
-### str()
+### `str()`
 De la misma manera, podemos convertir un número a texto:
 
 ```python
@@ -344,7 +344,7 @@ Entonces tendremos:
 <class 'str'>
 ```
 
-### bool()
+### `bool()`
 También podemos convertir valores a booleanos:
 
 ```python
@@ -470,7 +470,7 @@ Python permite realizar operaciones matemáticas directamente mediante los opera
 ### Operadores de comparación
 También podemos comparar valores usando `==`, `!=`, `>`, `<`, `>=`, `<=`. Todos ellos producen un booleano. Más adelante utilizaremos estos resultados para filtrar datasets.
 
-### = frente a ==
+### `=` frente a `==`
 Esta diferencia es fundamental. `=` significa asignación:
 
 ```python
@@ -492,7 +492,7 @@ Por tanto:
 ==  → comparar
 ```
 
-### Operadores lógicos
+### Operadores lógicos
 Podemos combinar condiciones mediante `and`, `or`, `not`, y `and`.
 - `and`: Ambas condiciones deben cumplirse
 - `or`: Al menos una debe cumplirse
@@ -552,7 +552,7 @@ for               → iteraciones
 while             → repeticiones condicionadas
 ```
 
-## 2. if — tomar decisiones
+## 2. *if* — tomar decisiones
 La estructura más básica es:
 
 ```python
@@ -571,7 +571,7 @@ if rating >= 8:
 
 Como `8.5 >= 8` es `True`, se ejecuta `print()`.
 
-## 3. else — alternativa
+## 3. *else* — alternativa
 Podemos definir qué ocurre cuando la condición es falsa. El flujo será:
 
 ```text
@@ -584,7 +584,7 @@ Highly rated   Not highly rated
 
 `else` no lleva condición porque representa precisamente todos los casos en los que `if` no se cumple.
 
-## 4. elif — múltiples posibilidades
+## 4. *elif* — múltiples posibilidades
 Si tenemos más de dos posibilidades utilizamos `elif`. El flujo será:
 
 ```text
@@ -603,14 +603,14 @@ rating >= 8?
 
 Aquí Python comprueba las condiciones en orden. Python entrará en el primer bloque y no continúa comprobando los `elif` si se cumple la condición para ejecutar el primer bloque. Por eso normalmente debemos colocar primero las condiciones más específicas.
 
-## 5. Condiciones compuestas
+## 5. Condiciones compuestas
 Podemos combinar condiciones con `and`, `or` y `not`:
 
 - `and`: ambas condiciones han de ser verdaderas.
 - `or`: solo necesitamos una verdadera.
 - `not`: invierte el booleano.
 
-## 6. for — repetir para cada elemento
+## 6. *for* — repetir para cada elemento
 Esta estructura es fundamental en programación. `for` lo utilizamos normalmente cuando queremos recorrer una colección o realizar una cantidad conocida de iteraciones. Supongamos que tenemos `movies = ["Dune", "Interstellar", "Gladiator"]`. Podemos recorrerlas haciendo:
 
 ```python
@@ -630,7 +630,7 @@ for i in range(5):
  También podemos especificar inicio y final del rango, haciendo `range(i,f)`, que genera los enteros entre `i` y `f-1`.
 
 
-## 7. while — repetir mientras se cumpla una condición
+## 7. *while* — repetir mientras se cumpla una condición
 `while` lo utilizamos cuando queremos continuar mientras se cumpla una condición. Funciona siguiendo este flujo:
 
 ```text
@@ -662,7 +662,7 @@ Y como resultado obtendremos la secuencia 0, 1, 2, 3, 4.
 
 ## 8. `break` vs `continue`
 
-### break
+### *break*
 Python *break* es una sentencia que permite salir de/parar un bucle por completo en cuanto se da o deja de darse una condición externa. Python *break* se utiliza dentro del código y suele estar situado después de una sentencia *if*. Por ejemplo:
 
 ```python
@@ -676,7 +676,7 @@ for rating in ratings:
 
 Así, cuando encuentra `9.1`, termina el bucle.
 
-### continue
+### *continue*
 Python *continue* se salta una parte del bucle si se cumple una determinada condición. Python *continue* también se utiliza dentro del bucle y a menudo se coloca tras una sentencia *if*. Por ejemplo:
 
 ```python
