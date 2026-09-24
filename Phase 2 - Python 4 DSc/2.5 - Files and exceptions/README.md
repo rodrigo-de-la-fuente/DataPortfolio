@@ -133,9 +133,9 @@ Cuando trabajemos con archivos grandes, procesar línea por línea puede ser muc
 También podemos obtener las líneas como una lista:
 
 ```python
-archivo = open("datos.txt", "r")
-lineas = archivo.readlines()
-print(lineas)
+with open("datos.txt", "r") as archivo:
+    lineas = archivo.readlines()
+    print(lineas)
 ```
 
 **Resultado:**
