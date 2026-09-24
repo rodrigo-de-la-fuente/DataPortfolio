@@ -64,97 +64,68 @@ Esto es el comienzo de algo muy importante en Data / AI:
 > **Entrada de datos → Procesamiento → Salida de datos**
 
 
-## 2. Abrir un archivo
-
-Python utiliza la función:
-
-```python
-open()
-```
-
-Por ejemplo:
+## 2. Manejar archivos
+Python nos proporciona una forma **segura y limpia** de trabajar con archivos, y eso es con la estructura `with open()`:
 
 ```python
-archivo = open("datos.txt", "r")
+with open("datos.txt", "r") as archivo:
+    contenido = archivo.read()
 ```
 
-Aquí estamos diciendo:
-* `"datos.txt"` → Archivo que queremos abrir.
-* `"r"` → Modo de lectura (*read*).
+Así podemos leer o escribir archivos y cerrarlos automáticamente al terminar, incluso si ocurre un error. Vamos por partes:
 
-Después podemos leer su contenido.
+- `with` es el administrador de contexto (*context manager*): Gestiona recursos de entrada/salida.
+- `open()` es la función nativa para abrir ficheros.
+- `as f` asigna el archivo abierto a una variable local.
 
-## 3. Leer un archivo
 
-### Leer todo el contenido
+### Modos de apertura de un archivo
 
-Podemos utilizar:
+Los modos comunes de apertura de un archivo son:
+
+* `'r'`: Lectura (por defecto). Falla si el archivo no existe.
+* `'w'`: Escritura. Sobrescribe el archivo o lo crea si no existe.
+* `'a'`: Añade (*append*). Agrega contenido al final del archivo.
+* `'r+'`: Lectura y escritura simultáneas.
+
+## 3. Lectura
+
+### Leer todo el archivo
 
 ```python
-contenido = archivo.read()
+with open("datos.txt", "r", encoding="utf-8") as archivo:
+    contenido = archivo.read()
 ```
 
-#### Ejemplo:
-
-```python
-archivo = open("datos.txt", "r")
-contenido = archivo.read()
-print(contenido)
-```
-
-Si `datos.txt` contiene:
+Obtenemos un único `str`.
 
 ```text
-Hola
-Este es mi archivo
-Python puede leerlo
+archivo
+   ↓
+"todo el contenido"
 ```
-
-Obtendremos:
-
-```text
-Hola
-Este es mi archivo
-Python puede leerlo
-```
-
 
 ### Leer línea por línea
 
-Otra posibilidad es:
-
 ```python
-archivo = open("datos.txt", "r")
-for linea in archivo:
-    print(linea)
+with open("datos.txt", "r", encoding="utf-8") as archivo:
+    for linea in archivo:
+        ...
 ```
 
-Esto es especialmente interesante cuando tenemos archivos grandes.
-
-Por ejemplo:
+Conceptualmente:
 
 ```text
-Ana
-Pedro
-María
-Juan
+archivo
+   ↓
+línea 1
+línea 2
+línea 3
+línea 4
+...
 ```
 
-Python puede procesar:
-
-```text
-Ana
- ↓
-Pedro
- ↓
-María
- ↓
-Juan
-```
-
-Sin necesidad conceptual de convertir todo el archivo en una única cadena.
-
-Esto será muy útil posteriormente cuando trabajemos con **datasets y grandes cantidades de datos**.
+Cuando trabajemos con archivos grandes, procesar línea por línea puede ser mucho más adecuado que cargar todo el contenido de una vez. Esto será muy útil posteriormente cuando trabajemos con **datasets y grandes cantidades de datos**.
 
 
 ### `readlines()`
@@ -214,406 +185,7 @@ Produciría:
 Python
 ```
 
-
-## 4. Escribir en un archivo
-
-Para escribir utilizamos el modo `"w"` (*write*).
-
-### Ejemplo:
-
-```python
-archivo = open("resultado.txt", "w")
-archivo.write("Hola mundo")
-archivo.close()
-```
-
-Se creará el archivo `resultado.txt` con:
-
-```text
-Hola mundo
-```
-
-
-### Cuidado con `"w"`
-
-Hay algo **muy importante** que debes recordar.
-
-Si hacemos:
-
-```python
-open("resultado.txt", "w")
-```
-
-Y el archivo ya existe, **su contenido será sobrescrito**.
-
-Por ejemplo, si tenemos `resultado.txt` con:
-
-```text
-Hola
-Adiós
-```
-
-Y ejecutamos:
-
-```python
-archivo = open("resultado.txt", "w")
-archivo.write("Nuevo contenido")
-archivo.close()
-```
-
-Ahora tendremos:
-
-```text
-Nuevo contenido
-```
-
-El contenido anterior desaparece.
-
-
-## 5. Añadir contenido: `"a"`
-
-Para añadir información al final del archivo utilizamos `"a"` (*append*).
-
-### Ejemplo:
-
-```python
-archivo = open("resultado.txt", "a")
-archivo.write("
-Nueva línea")
-archivo.close()
-```
-
-Si teníamos:
-
-```text
-Hola
-Adiós
-```
-
-Ahora tendremos:
-
-```text
-Hola
-Adiós
-Nueva línea
-```
-
-
-## 6. Cerrar el archivo
-
-Cuando utilizamos `open()` estamos abriendo un recurso. Por eso debemos cerrarlo:
-
-```python
-archivo.close()
-```
-
-### Ejemplo completo:
-
-```python
-archivo = open("datos.txt", "r")
-contenido = archivo.read()
-print(contenido)
-archivo.close()
-```
-
-La secuencia conceptual es:
-
-```text
-open()
-   ↓
-trabajar con el archivo
-   ↓
-close()
-```
-
-En la siguiente lección veremos una forma mucho más segura y profesional de hacer esto.
-
-## 7. Un pequeño ejemplo orientado a Data
-
-Supongamos que tenemos `productos.txt` con:
-
-```text
-Pan,1.20
-Leche,0.95
-Huevos,2.50
-```
-
-Podemos leerlo:
-
-```python
-archivo = open("productos.txt", "r")
-for linea in archivo:
-    print(linea.strip())
-archivo.close()
-```
-
-> `strip()` elimina los espacios y saltos de línea sobrantes.
-
-Obtendríamos:
-
-```text
-Pan,1.20
-Leche,0.95
-Huevos,2.50
-```
-
-Pero todavía podemos hacer algo más interesante:
-
-```python
-archivo = open("productos.txt", "r")
-for linea in archivo:
-    nombre, precio = linea.strip().split(",")
-    print(f"{nombre}: {precio} €")
-archivo.close()
-```
-
-**Resultado:**
-
-```text
-Pan: 1.20 €
-Leche: 0.95 €
-Huevos: 2.50 €
-```
-
-Aquí ya estamos conectando varios conceptos que has aprendido:
-
-```text
-ARCHIVO
-   │
-   ▼
-leer líneas
-   │
-   ▼
-strings
-   │
-   ▼
-split()
-   │
-   ▼
-variables
-   │
-   ▼
-procesamiento
-   │
-   ▼
-resultado
-```
-
----
-
-# Lección 2.5.2 — `with open()`: trabajar con archivos de forma segura
-
-En la lección anterior aprendimos a hacer esto:
-
-```python
-archivo = open("datos.txt", "r")
-contenido = archivo.read()
-archivo.close()
-```
-
-Funciona, pero Python nos proporciona una forma **más segura y limpia** de trabajar con archivos:
-
-```python
-with open("datos.txt", "r") as archivo:
-    contenido = archivo.read()
-```
-
-La idea fundamental de esta lección es:
-
-> **`with open()` se encarga de cerrar el archivo automáticamente cuando terminamos de trabajar con él.**
-
-
-## 1. El problema de `open()` + `close()`
-
-Con el método anterior nosotros somos responsables de recordar:
-
-```python
-archivo.close()
-```
-
-Por ejemplo:
-
-```python
-archivo = open("datos.txt", "r")
-contenido = archivo.read()
-archivo.close()
-```
-
-Pero imagina que entre `read()` y `close()` ocurre un error:
-
-```python
-archivo = open("datos.txt", "r")
-contenido = archivo.read()
-resultado = 10 / 0
-archivo.close()
-```
-
-El programa encuentra el error antes de llegar a:
-
-```python
-archivo.close()
-```
-
-Por tanto, el archivo podría quedar abierto.
-
-Aquí aparece `with`.
-
-
-## 2. La estructura `with open()`
-
-La sintaxis es:
-
-```python
-with open("archivo.txt", "r") as archivo:
-    # trabajar con archivo
-```
-
-Por ejemplo:
-
-```python
-with open("datos.txt", "r") as archivo:
-    contenido = archivo.read()
-
-print(contenido)
-```
-
-Observa que el bloque que pertenece al `with` se identifica mediante **indentación**, al igual que ocurría con las estructuras de control `if`, `for`, `while`, y con `def` en las funciones.
-
-Conceptualmente:
-
-```text
-with open()
-      │
-      ▼
-abre el archivo
-      │
-      ▼
-ejecuta el bloque
-      │
-      ▼
-termina el bloque
-      │
-      ▼
-cierra automáticamente el archivo
-```
-
-Incluso si dentro del bloque ocurre un error, Python puede encargarse de realizar la limpieza correspondiente. Por eso `with` es preferible a gestionar manualmente `close()`.
-
-
-## 3. Leer un archivo
-
-La forma habitual será:
-
-```python
-with open("datos.txt", "r") as archivo:
-    contenido = archivo.read()
-
-print(contenido)
-```
-
-Y no necesitamos:
-
-```python
-archivo.close()
-```
-
-
-### Leer línea por línea
-
-También podemos hacer:
-
-```python
-with open("datos.txt", "r") as archivo:
-    for linea in archivo:
-        print(linea.strip())
-```
-
-Por ejemplo, si tenemos:
-
-```text
-Pan
-Leche
-Huevos
-```
-
-Obtendremos:
-
-```text
-Pan
-Leche
-Huevos
-```
-
-## 4. Escribir un archivo
-
-También funciona con `"w"`:
-
-```python
-with open("resultado.txt", "w") as archivo:
-    archivo.write("Hola mundo")
-```
-
-Al terminar el bloque:
-
-```text
-with
- ↓
-escribir
- ↓
-fin del bloque
- ↓
-archivo cerrado automáticamente
-```
-
-
-## 5. Añadir información
-
-Podemos utilizar `"a"`:
-
-```python
-with open("resultado.txt", "a") as archivo:
-    archivo.write("
-Nueva línea")
-```
-
-
-## 6. Nuestro ejemplo de productos
-
-En la lección anterior podríamos haber hecho:
-
-```python
-archivo = open("productos.txt", "w")
-archivo.write("Pan,1.20
-")
-archivo.write("Leche,0.95
-")
-archivo.write("Huevos,2.50
-")
-archivo.close()
-```
-
-Ahora podemos escribirlo de forma más segura:
-
-```python
-with open("productos.txt", "w") as archivo:
-    archivo.write("Pan,1.20
-")
-    archivo.write("Leche,0.95
-")
-    archivo.write("Huevos,2.50
-")
-```
-
-Y posteriormente:
-
-```python
-with open("productos.txt", "r") as archivo:
-    for linea in archivo:
-        print(linea.strip())
-```
-
-
-## 7. `with` no es exclusivo de archivos
+## 4. `with` no es exclusivo de archivos
 
 `with` pertenece a una idea más general de Python:
 
@@ -622,7 +194,7 @@ with open("productos.txt", "r") as archivo:
 Un archivo es un recurso, pero existen otros. Por ahora no necesitamos aprender todos los casos. Nos quedamos con la idea de que `with` permite que Python gestione correctamente determinados recursos y realice la limpieza necesaria al terminar el bloque. Más adelante encontraremos estructuras con `with` en diferentes contextos.
 
 
-## 8. Una mejora importante: `encoding`
+## 5. Una mejora importante: `encoding`
 
 Cuando trabajamos con archivos de texto, es buena práctica especificar la codificación:
 
@@ -649,46 +221,73 @@ with open("datos.txt", "w", encoding="utf-8") as archivo:
 Esto es especialmente importante trabajando con datos reales.
 
 
-## 9. `read()` frente a iterar por líneas
+## 6. Algunas funciones útiles
 
-Tenemos dos estrategias principales a la hora de leer un archivo...
-
-### Leer todo el archivo
-
-```python
-with open("datos.txt", "r", encoding="utf-8") as archivo:
-    contenido = archivo.read()
-```
-
-Obtenemos un único `str`.
+Supongamos que tenemos `productos.txt` con:
 
 ```text
-archivo
-   ↓
-"todo el contenido"
+Pan,1.20
+Leche,0.95
+Huevos,2.50
 ```
 
-### Leer línea por línea
+Podemos leerlo:
 
 ```python
-with open("datos.txt", "r", encoding="utf-8") as archivo:
+with open("productos.txt", "r") as archivo:
     for linea in archivo:
-        ...
+        print(linea.strip())
 ```
 
-Conceptualmente:
+Aquí, `strip()` elimina los espacios y saltos de línea sobrantes y obtendríamos:
 
 ```text
-archivo
-   ↓
-línea 1
-línea 2
-línea 3
-línea 4
-...
+Pan,1.20
+Leche,0.95
+Huevos,2.50
 ```
 
-Cuando trabajemos con archivos grandes, procesar línea por línea puede ser mucho más adecuado que cargar todo el contenido de una vez.
+Pero todavía podemos hacer algo más:
+
+```python
+with open("productos.txt", "r") as archivo:
+    for linea in archivo:
+        nombre, precio = linea.strip().split(",")
+        print(f"{nombre}: {precio} €")
+```
+
+Y como resultado tendremos:
+
+```text
+Pan: 1.20 €
+Leche: 0.95 €
+Huevos: 2.50 €
+```
+
+Aquí ya estamos conectando varios conceptos que hemos aprendido:
+
+```text
+ARCHIVO
+   │
+   ▼
+leer líneas
+   │
+   ▼
+strings
+   │
+   ▼
+split()
+   │
+   ▼
+variables
+   │
+   ▼
+procesamiento
+   │
+   ▼
+resultado
+```
+
 
 ---
 
@@ -1077,4 +676,442 @@ Si `main.py` está dentro de `src`, la ruta `Path("data/productos.csv")` no nece
 > **¿Dónde está mi archivo Python? ≠ ¿Desde dónde estoy ejecutando Python?**
 
 Esto suele generar bastantes errores cuando se empieza a trabajar con proyectos.
+
+---
+
+# Lección 2.5.4 — Manejo de excepciones
+
+Hasta ahora nuestros programas han funcionado suponiendo que todo sale bien. Pero un programa real tiene que enfrentarse a situaciones como:
+
+* El usuario introduce texto cuando esperábamos un número.
+* Intentamos abrir un archivo que no existe.
+* Una carpeta ya existe.
+* Intentamos dividir entre cero.
+* Un índice no existe en una lista.
+* Una clave no existe en un diccionario.
+
+Python no puede simplemente continuar como si nada. Cuando ocurre una situación problemática durante la ejecución, Python genera una **excepción**.
+
+
+## 1. ¿Qué es una excepción?
+
+Observa:
+
+```python
+numero = int("hola")
+```
+
+Python no puede convertir `"hola"` en un entero. Por tanto, genera una excepción: `ValueError`. Y veremos algo parecido a:
+
+```text
+ValueError: invalid literal for int() with base 10: 'hola'
+```
+
+El programa se detiene. Conceptualmente:
+
+```text
+Programa
+   │
+   ▼
+ejecución normal
+   │
+   ▼
+¿ocurre un problema?
+   │
+   ├── NO ──→ continúa
+   │
+   └── SÍ ──→ excepción
+                  │
+                  ▼
+             programa detenido
+```
+
+
+## 2. Excepción ≠ error de sintaxis
+
+Es importante distinguir dos cosas:
+
+### Error de sintaxis
+
+```python
+if numero > 10
+    print(numero)
+```
+
+Falta `:`. Python ni siquiera puede interpretar correctamente el programa.
+
+### Excepción durante la ejecución
+
+```python
+numero = int("hola")
+```
+
+El código es sintácticamente correcto, pero **algo sucede durante la ejecución que Python no puede realizar**.
+
+```text
+Sintaxis incorrecta
+       ↓
+Python no puede ejecutar correctamente el código
+
+Excepción
+       ↓
+Python empieza a ejecutar
+       ↓
+encuentra una situación problemática
+```
+
+
+## 3. Algunos tipos de excepciones importantes
+
+No necesitas memorizar todas las excepciones de Python pero sí reconocer algunas habituales:
+
+* **`ValueError`**: El tipo de dato tiene una forma que no puede utilizarse para la operación.
+  ```python
+  int("hola")  # → ValueError
+  ```
+* **`TypeError`**: Intentamos realizar una operación incompatible con el tipo de dato.
+  ```python
+  "10" + 5  # → TypeError (no podemos sumar directamente un str y un int)
+  ```
+* **`ZeroDivisionError`**:
+  ```python
+  resultado = 10 / 0  # → ZeroDivisionError
+  ```
+* **`IndexError`**:
+  ```python
+  numeros = [10, 20, 30]
+  print(numeros[5])  # No existe la posición 5 → IndexError
+  ```
+* **`KeyError`**:
+  ```python
+  persona = {"nombre": "Ana"}
+  print(persona["edad"])  # No existe la clave "edad" → KeyError
+  ```
+* **`FileNotFoundError`**:
+  ```python
+  with open("archivo_inexistente.txt", "r") as archivo:
+      contenido = archivo.read()  # Si el archivo no existe → FileNotFoundError
+  ```
+  *Este nos interesa especialmente por la lección que estamos estudiando.*
+
+
+## 4. Qué hacer cuando aparece una excepción
+
+Aquí aparece una idea fundamental: **`try`** y **`except`**. La estructura básica es:
+
+```python
+try:
+    # código que puede producir una excepción
+except:
+    # qué hacer si ocurre
+```
+
+Por ejemplo:
+
+```python
+try:
+    numero = int("hola")
+except:
+    print("No se pudo convertir el valor")
+```
+
+En lugar de terminar abruptamente con el traceback, podemos controlar la situación.
+
+### Especificar qué excepción esperamos
+
+Aunque usar un `except` genérico funciona:
+
+```python
+try:
+    numero = int("hola")
+except:
+    print("Ha ocurrido un error")
+```
+
+No es la mejor práctica. Es preferible indicar qué excepción queremos manejar:
+
+```python
+try:
+    numero = int("hola")
+except ValueError:
+    print("El valor no es un número válido")
+```
+
+Esto es mucho más preciso.
+
+Conceptualmente:
+
+```text
+try
+ │
+ └── intenta ejecutar
+          │
+          ▼
+      ¿ValueError?
+          │
+       ┌──┴──┐
+      NO     SÍ
+       │      │
+       ▼      ▼
+   continúa  except
+```
+
+### Por qué no utilizar siempre `except` genérico
+
+Porque podemos ocultar errores que realmente queremos conocer. Por ejemplo:
+
+```python
+try:
+    resultado = 10 / 0
+except:
+    print("Algo ha ocurrido")
+```
+
+Funciona, pero hemos perdido información importante. Es mejor:
+
+```python
+try:
+    resultado = 10 / 0
+except ZeroDivisionError:
+    print("No se puede dividir entre cero")
+```
+
+Ahora sabemos exactamente qué problema estamos tratando.
+
+
+## 5. Obtener información de la excepción
+
+Podemos guardar la excepción en una variable:
+
+```python
+try:
+    numero = int("hola")
+except ValueError as error:
+    print(error)
+```
+
+Podemos obtener algo como:
+
+```text
+invalid literal for int() with base 10: 'hola'
+```
+
+La variable `error` contiene información sobre la excepción. También podemos utilizar nombres cortos como `except ValueError as e:`, pero `error` suele resultar más descriptivo para alguien que está aprendiendo.
+
+
+## 6. Varias excepciones
+
+Una misma operación puede producir distintos tipos de excepción. Por ejemplo:
+
+```python
+try:
+    numero = int(input("Introduce un número: "))
+    resultado = 100 / numero
+    print(resultado)
+except ValueError:
+    print("Debes introducir un número válido")
+except ZeroDivisionError:
+    print("No puedes introducir cero")
+```
+
+Aquí tenemos dos posibles problemas:
+
+```text
+input()
+  │
+  ▼
+int()
+  │
+  ├── texto inválido → ValueError
+  │
+  ▼
+división
+  │
+  └── 0 → ZeroDivisionError
+```
+
+Cada uno recibe un tratamiento diferente.
+
+
+## 7. `try` debe contener lo necesario
+
+No debemos meter todo el programa dentro de un único `try`. Por ejemplo, esto puede ocultar demasiado:
+
+```python
+# Malas prácticas: try demasiado grande
+try:
+    numero = int(input("Número: "))
+    print(numero)
+    ...
+    ...
+    ...
+```
+
+Es mejor que el `try` abarque **únicamente** la operación que puede producir la excepción:
+
+```python
+entrada = input("Introduce un número: ")
+
+try:
+    numero = int(entrada)
+except ValueError:
+    print("Entrada no válida")
+```
+
+Esto deja mucho más claro qué estamos controlando.
+
+
+## 8. Excepciones y archivos
+
+Ahora podemos conectar esta lección con la anterior:
+
+```python
+from pathlib import Path
+
+ruta = Path("data/productos.txt")
+
+try:
+    with open(ruta, "r", encoding="utf-8") as archivo:
+        contenido = archivo.read()
+except FileNotFoundError:
+    print("El archivo no existe")
+```
+
+Ahora nuestro programa no se rompe simplemente porque el archivo no esté.
+
+
+## 9. Ejemplo completo
+
+Imaginemos:
+
+```python
+from pathlib import Path
+
+def main():
+    ruta = Path("data/productos.txt")
+
+    try:
+        with open(ruta, "r", encoding="utf-8") as archivo:
+            contenido = archivo.read()
+        print(contenido)
+
+    except FileNotFoundError:
+        print(f"No se encontró el archivo: {ruta}")
+
+if __name__ == "__main__":
+    main()
+```
+
+La estructura conceptual es:
+
+```text
+                 programa
+                    │
+                    ▼
+              intentar leer
+                    │
+             ┌──────┴──────┐
+             │             │
+           éxito          error
+             │             │
+             ▼             ▼
+         mostrar       FileNotFoundError
+         contenido           │
+                             ▼
+                      mensaje controlado
+```
+
+
+Esta distinción es muy importante: 
+> **Capturar la excepción no significa ignorarla**
+
+No queremos hacer:
+
+```python
+except:
+    pass
+```
+
+Esto significa prácticamente: *"Si ocurre algo, no hagas nada"*. Puede hacer que un programa parezca funcionar cuando en realidad está fallando. En cambio, preferimos:
+
+```python
+except FileNotFoundError:
+    print("El archivo no existe.")
+```
+
+O, en un programa más elaborado, registrar el error, solicitar otra entrada, utilizar un valor alternativo, etc.
+
+
+## 10. Crear nuestros propios mensajes
+
+Las excepciones permiten que el programa sea más comprensible para el usuario.
+
+**Sin manejo:**
+```text
+Traceback (most recent call last):
+...
+FileNotFoundError: ...
+```
+
+**Con manejo:**
+```text
+No se encontró el archivo productos.txt.
+```
+
+Esto es especialmente importante en aplicaciones que otras personas van a utilizar.
+
+
+## 11. Excepciones como parte del flujo del programa
+
+Una excepción no tiene por qué significar *"El programa está completamente roto"*. Puede significar: **"Ha ocurrido una situación que el programa debe saber gestionar."**
+
+```text
+Usuario
+  │
+  ▼
+introduce dato
+  │
+  ▼
+¿dato válido?
+  │
+ ┌┴──────────────┐
+ │               │
+Sí              No
+ │               │
+ ▼               ▼
+continuar    manejar excepción
+```
+
+Esto convierte nuestros programas en sistemas más robustos.
+
+
+## 12. Excepciones frente a `if`
+
+A veces podemos comprobar una situación antes de realizar una operación.
+
+### Con `if`
+```python
+from pathlib import Path
+
+ruta = Path("datos.txt")
+
+if ruta.exists():
+    with open(ruta, "r", encoding="utf-8") as archivo:
+        contenido = archivo.read()
+else:
+    print("El archivo no existe.")
+```
+
+### Con `try` / `except`
+```python
+try:
+    with open("datos.txt", "r", encoding="utf-8") as archivo:
+        contenido = archivo.read()
+except FileNotFoundError:
+    print("El archivo no existe.")
+```
+
+¿Cuál debemos utilizar? Depende de la situación.
+* **Comprobación explícita (`if`):** Apropiada cuando queremos tomar una decisión basándonos en una condición conocida.
+* **Excepción (`try`/`except`):** Apropiada cuando una operación puede fallar y queremos gestionar ese fallo directamente al ejecutarla.
 
